@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import LoginYoonkyeong from './pages/yoonkyeong/Login/Login';
 import MainYoonkyeong from './pages/yoonkyeong/Main/Main';
 import LoginDaeyeong from './pages/daeyeong/Login/Login';
@@ -11,9 +11,9 @@ import Navbar from './components/Navbar';
 import './styles/common.scss';
 import './styles/reset.scss';
 
-function App() {
+function Router() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar />
       <Routes>
         {/* 윤경님 */}
@@ -32,8 +32,8 @@ function App() {
         <Route path="/login-joonyoung" element={<LoginJoonyoung />} />
         <Route path="/main-joonyoung" element={<MainJoonyoung />} />
       </Routes>
-    </div>
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default Router;
