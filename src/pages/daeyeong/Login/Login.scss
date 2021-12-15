@@ -1,0 +1,63 @@
+.login_main {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+
+  .login_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 700px;
+    padding: 80px;
+    border: 1px solid #bbb;
+
+    .login_logo {
+      font-family: 'Lobster', cursive;
+      font-size: 50px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .login_container {
+      display: flex;
+      flex-direction: column;
+      width: 537px;
+
+      .login_email,
+      .login_pw {
+        background-color: #fafafa;
+        padding: 10px;
+        font-size: 20px;
+        height: 72px;
+        width: 533px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #bbb;
+      }
+
+      .login_btn {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 22px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #c0dffd;
+        border: 1px solid #bbb;
+        margin-bottom: 120px;
+        color: white;
+        height: 56px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .passwordfind_link {
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+}
