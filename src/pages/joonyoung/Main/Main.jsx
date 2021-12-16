@@ -1,6 +1,7 @@
 import React from 'react';
 import Story from './Story/Story.';
 import Sidebar from './Sidebar/Sidebar';
+import Feed from './Feed/Feed';
 import './Main.scss';
 
 export default function Login() {
@@ -8,7 +9,7 @@ export default function Login() {
     <main>
       <Story />
       <Sidebar />
-      {/* <h1>Hello rowld</h1> */}
+      <Feed />
     </main>
   );
 }

@@ -1,0 +1,8 @@
+.feed {
+  margin-top: 1.75rem;
+  display: grid;
+  // grid-template-rows: min-content minmax(auto, 60vh) max-content auto;
+  grid-template-rows: min-content minmax(20vh, auto) max-content;
+  box-shadow: 0 0 0.75rem lightgray;
+  position: relative;
+}

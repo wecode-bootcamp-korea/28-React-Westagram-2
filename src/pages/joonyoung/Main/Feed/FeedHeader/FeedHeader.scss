@@ -1,0 +1,28 @@
+@use '../../../../../styles/mixin' as mixin;
+
+.feed__header {
+  @include mixin.flex($align: center);
+  // background-color: aqua;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid lightgray;
+
+  &-img {
+    img {
+      display: block;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+    }
+  }
+
+  p {
+    margin-left: 0.5rem;
+    font-size: 0.975rem;
+    font-weight: 500;
+  }
+
+  .dots {
+    margin-left: auto;
+    cursor: pointer;
+  }
+}
