@@ -10,7 +10,7 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi';
 export default function MainYoonkyeong() {
   return (
     <main>
-      <div className="feeds">
+      <div className="feedsYK">
         <div className="article">
           <div className="articleHeader">
             <div className="publisherProfile">

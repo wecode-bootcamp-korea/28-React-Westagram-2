@@ -1,7 +1,7 @@
 @use '../../styles/color' as color;
 
 .navbar {
-  z-index: 100;
+  z-index: 999;
   min-height: 3rem;
   --padding: 15vw;
   padding: 0 var(--padding);
@@ -14,14 +14,17 @@
   position: fixed;
   inset: 0;
   bottom: 91vh;
+  background-color: #fff;
   box-shadow: 0 0 3px lightgray;
 
   h1 {
     display: flex;
     position: relative;
+
     svg {
       margin-right: 10px;
     }
+
     &:before {
       content: '';
       position: absolute;
@@ -33,7 +36,7 @@
       top: 5px;
     }
   }
-  .search {
+  search {
     position: relative;
     input {
       padding: 0.65rem 2.5rem;
@@ -41,7 +44,9 @@
       font-size: 0.75rem;
       border: 1px solid color.$clr-border;
       border-radius: 0.3em;
+      outline: none;
     }
+
     .icon {
       position: absolute;
       left: 3%;
@@ -51,8 +56,9 @@
       color: lightgray;
     }
   }
+
   &__icons {
-    position: relative; // for dropdown list
+    position: relative;
     .icon,
     img {
       cursor: pointer;
@@ -64,5 +70,22 @@
   & img {
     border-radius: 50%;
     display: inline-block;
+  }
+
+  @media screen and (max-width: 968px) {
+    & {
+      --padding: 5vw;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    & h1 {
+      &::before {
+        display: none;
+      }
+      .title {
+        display: none;
+      }
+    }
   }
 }
