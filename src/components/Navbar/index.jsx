@@ -5,13 +5,17 @@ import {
   AiOutlineSearch,
   AiOutlineCompass,
   AiOutlineHeart,
+  AiOutlineInstagram,
 } from 'react-icons/ai';
 import './Navbar.scss';
 
-const Navbar = () => {
+function Navbar() {
   return (
     <header className="navbar flex items-center">
-      <h2>Westagram</h2>
+      <h1>
+        <AiOutlineInstagram size="30" />
+        Westagram
+      </h1>
       <div className="search flex items-center">
         <input type="text" placeholder="검색" className="search-input" />
         <AiOutlineSearch className="icon" />
@@ -28,6 +32,6 @@ const Navbar = () => {
       </div>
     </header>
   );
-};
+}
 
 export default Navbar;

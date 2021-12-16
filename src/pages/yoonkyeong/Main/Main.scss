@@ -1,0 +1,283 @@
+@use '../../../styles/mixin' as mixin;
+@use '../../../styles/color' as color;
+
+main {
+  display: flex;
+  flex-flow: row nowrap;
+
+  .feeds {
+    width: 615px;
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0px 50px 100px 100px;
+
+    .article {
+      background-color: #fff;
+      border: 1px solid color.$clr-border;
+
+      .articleHeader {
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        padding: 14px 4px 14px 16px;
+
+        .publisherProfile {
+          display: flex;
+
+          .publisherImage {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .publisherId {
+            text-align: center;
+            padding: 5px 15px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .articleWrapper {
+        width: 615px;
+        height: 615px;
+
+        .articleImage {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .articleIconsWrapper {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        position: relative;
+        width: 140px;
+        height: 54px;
+        padding: 10px 0px;
+
+        img {
+          height: 100%;
+          padding: 10px;
+        }
+
+        .bookmark {
+          position: absolute;
+          right: -470px;
+        }
+      }
+
+      .likeWrapper {
+        height: 18px;
+        padding: 0px 16px;
+        margin: 5px 0px 15px 0px;
+      }
+
+      .commentWrapper {
+        padding: 0px 16px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .timeWrapper {
+        padding-left: 16px;
+        margin: 5px 0px 16px 0px;
+        font-size: smaller;
+        color: #b4b4b4;
+      }
+
+      /* comment */
+
+      .commentInputWapper {
+        padding: 6px 16px 6px 6px;
+        border-top: 1px solid color.$clr-border;
+        display: flex;
+        justify-content: space-between;
+
+        .commentInputText {
+          width: 518px;
+          height: 40px;
+          border: none;
+
+          &::placeholder {
+            color: #8e8e8e;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .commentInputButton {
+          color: #c0dffd;
+          border: none;
+          background-color: white;
+        }
+      }
+
+      /* 태어난 코멘트들 */
+
+      .comm {
+        position: relative;
+      }
+      .userName {
+        font-weight: bold;
+      }
+      .commHeart {
+        position: absolute;
+        right: 5px;
+      }
+      .commDelete {
+        position: absolute;
+        right: 30px;
+      }
+    }
+  }
+  /* aside */
+
+  aside {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0px 50px 100px 100px;
+
+    .userInformation {
+      display: flex;
+      margin: 0px 0px 10px 0px;
+
+      .userImage {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .userText {
+        padding: 5px 0px 5px 23px;
+
+        .userId {
+          font-weight: bold;
+          font-size: 16px;
+        }
+
+        .userNickname {
+          color: #b4b4b4;
+          font-size: 15px;
+        }
+      }
+    }
+
+    .story {
+      @include mixin.flex($justify: flex-start, $align: center);
+      flex-flow: row wrap;
+      width: 293px;
+      height: 240px;
+      border: 1px solid color.$clr-border;
+      background-color: white;
+      border-radius: 2px;
+      overflow: hidden;
+
+      .storyHeader {
+        width: 293px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+        .storyTitle,
+        .allStory {
+          margin: 17px 15px;
+          font-size: small;
+        }
+        .storyTitle {
+          color: #b4b4b4;
+        }
+      }
+
+      .storyUserList {
+        padding: 0;
+        margin-left: 17px;
+
+        .userInformation {
+          margin: 2px;
+
+          .userImage {
+            width: 44px;
+            height: 44px;
+            @include mixin.flex($justify: center, $align: center);
+            background: color.$instaGradation;
+
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              border: 2px solid white;
+            }
+          }
+        }
+      }
+    }
+
+    .recommendation {
+      width: 293px;
+      border: 1px solid color.$clr-border;
+      background-color: white;
+      border-radius: 2px;
+      margin-top: 30px;
+
+      .recommendationHeader {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+        .recommendationForYou,
+        .allRecommendation {
+          margin: 17px 15px;
+          font-size: small;
+        }
+      }
+
+      .recommendationForYou {
+        color: #b4b4b4;
+      }
+
+      .recommendedPeople {
+        margin-left: 10px;
+
+        .userInformation {
+          display: flex;
+          margin: 2px;
+          position: relative;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+
+          .userImage {
+            width: 44px;
+            height: 44px;
+          }
+          .follow {
+            position: absolute;
+            right: 5px;
+            font-size: 14px;
+            color: color.$clr-primary;
+          }
+        }
+      }
+    }
+
+    .footer {
+      padding: 10px;
+      font-size: 8px;
+      color: lightgrey;
+    }
+  }
+}
