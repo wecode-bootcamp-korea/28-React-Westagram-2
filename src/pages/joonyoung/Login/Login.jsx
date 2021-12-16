@@ -64,7 +64,7 @@ const Login = () => {
       >
         <img
           src="/images/joonyoung/facebook.png"
-          alt="facebook image"
+          alt="facebook"
           id="facebook-img"
         />
         <span>Facebook으로 로그인</span>
@@ -73,6 +73,7 @@ const Login = () => {
         href="https://www.instagram.com/accounts/password/reset/"
         className="forgot-password"
         target="_blank"
+        rel="noreferrer"
       >
         비밀번호를 잊으셨나요?
       </a>

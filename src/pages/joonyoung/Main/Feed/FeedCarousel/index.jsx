@@ -19,8 +19,12 @@ const FeedCarousel = () => {
     setCurrIdx(prevIdx => ++prevIdx);
   };
 
+  const handleNavigateToIdx = e => {
+    const idx = e.target?.dataset?.idx;
+    idx && setCurrIdx(_ => parseInt(idx));
+  };
+
   useEffect(() => {
-    // currIdx * 560px 만큼 이동
     carouselRef.current.style.transform = `translateX(-${currIdx * 560}px)`;
   }, [currIdx]);
 
@@ -49,11 +53,7 @@ const FeedCarousel = () => {
           />
           <img
             src="./images/joonyoung/feed/feed1/pexels-fauxels-3184433.jpg"
-            alt="feed 2nd man~"
-          />
-          {/* <img
-            src="./images/joonyoung/feed/feed1/pexels-fauxels-3184433.jpg"
-            alt="feed 3rd hivefive"
+            alt="feed 3rd gathering hands"
           />
           <img
             src="./images/joonyoung/feed/feed1/pexels-min-an-853168.jpg"
@@ -62,16 +62,31 @@ const FeedCarousel = () => {
           <img
             src="./images/joonyoung/feed/feed1/pexels-this-is-zun-1116302.jpg"
             alt="feed 5th make start"
-          /> */}
+          />
         </div>
       </article>
 
-      <ul className="carousel__navigator">
-        <li className="slide_btn current" data-idx="0" />
-        <li className="slide_btn" data-idx="1" />
-        <li className="slide_btn" data-idx="2" />
-        <li className="slide_btn" data-idx="3" />
-        <li className="slide_btn" data-idx="4" />
+      <ul className="carousel__navigator" onClick={handleNavigateToIdx}>
+        <li
+          className={`slide_btn ${currIdx === 0 && 'current'}`}
+          data-idx="0"
+        />
+        <li
+          className={`slide_btn ${currIdx === 1 && 'current'}`}
+          data-idx="1"
+        />
+        <li
+          className={`slide_btn ${currIdx === 2 && 'current'}`}
+          data-idx="2"
+        />
+        <li
+          className={`slide_btn ${currIdx === 3 && 'current'}`}
+          data-idx="3"
+        />
+        <li
+          className={`slide_btn ${currIdx === 4 && 'current'}`}
+          data-idx="4"
+        />
       </ul>
     </section>
   );
