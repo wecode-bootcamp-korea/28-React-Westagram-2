@@ -1,3 +1,5 @@
+@use '../../../styles/color' as color;
+
 .login_main {
   display: flex;
   text-align: center;
@@ -28,14 +30,14 @@
 
       .login_email,
       .login_pw {
-        background-color: #fafafa;
+        background-color: color.$bg-login;
         padding: 10px;
         font-size: 20px;
         height: 72px;
         width: 533px;
         border-radius: 5px;
         margin-bottom: 10px;
-        border: 1px solid #bbb;
+        border: 1px solid color.$clr-border;
       }
 
       .login_btn {

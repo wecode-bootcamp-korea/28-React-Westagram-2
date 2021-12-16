@@ -1,60 +1,7 @@
+@use '../../../styles/color' as color;
+
 body {
-  background-color: #fafafa;
-}
-
-.main_nav {
-  z-index: 1;
-  display: flex;
-  top: 0;
-  height: 80px;
-  padding-right: 20px;
-  padding-left: 20px;
-  border-bottom: 1px solid #e2e2e2;
-  background-color: white;
-  position: fixed;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  font-family: 'Lobster', cursive;
-  font-size: 30px;
-
-  img {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-  }
-
-  .img_box {
-    margin-right: 10px;
-  }
-
-  .img_box span {
-    border-left: solid 1px black;
-    margin-right: 10px;
-  }
-
-  .search_bar {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    i {
-      font-size: 20px;
-    }
-
-    input {
-      text-align: center;
-      height: 25px;
-      width: 300px;
-    }
-
-    .fa-search {
-      position: absolute;
-      left: 110px;
-      color: #d6d2d2;
-    }
-  }
+  background-color: color.$bg-login;
 }
 
 main {
