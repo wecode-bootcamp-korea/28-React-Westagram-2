@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
@@ -7,30 +7,38 @@ import './FeedCarousel.scss';
 
 const FeedCarousel = () => {
   const [currIdx, setCurrIdx] = useState(0);
+  const carouselRef = useRef(null);
 
   const hadnleSlideLeft = () => {
-    console.log('left btn clicked');
+    if (currIdx === 0) return;
+    setCurrIdx(prevIdx => --prevIdx);
   };
 
   const handleSlideRight = () => {
-    console.log('right btn clicked');
+    if (currIdx === 4) return;
+    setCurrIdx(prevIdx => ++prevIdx);
   };
 
+  useEffect(() => {
+    // currIdx * 560px 만큼 이동
+    carouselRef.current.style.transform = `translateX(-${currIdx * 560}px)`;
+  }, [currIdx]);
+
   return (
-    <section>
+    <section className="">
       <article className="feed__carousel">
         <BsFillArrowLeftCircleFill
           size="24"
-          className="arrow"
+          className={`arrow ${currIdx === 0 ? 'hidden' : ''}`}
           onClick={hadnleSlideLeft}
         />
         <BsFillArrowRightCircleFill
           size="24"
-          className="arrow"
+          className={`arrow ${currIdx === 5 ? 'hidden' : ''}`}
           onClick={handleSlideRight}
         />
 
-        <div className="img__container">
+        <div className="img__container" ref={carouselRef}>
           <img
             src="./images/joonyoung/feed/feed1/pexels-fauxels-3184291.jpg"
             alt="feed 1st team gathered"
