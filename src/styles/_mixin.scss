@@ -1,7 +1,7 @@
-@mixin flex($justify: "flex-start", $align: "center") {
+@mixin flex($justify: flex-start, $align: center) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
 }
 
-// @include flex($justify: "center");
+// @include flex($justify: center);

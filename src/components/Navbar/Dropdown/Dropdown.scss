@@ -1,0 +1,56 @@
+@use '../../../styles/color' as color;
+@use '../../../styles/mixin' as mixin;
+
+.profile__dropbox {
+  position: absolute;
+  top: 150%;
+  left: 5%;
+  right: -10%;
+  z-index: 90;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 1px 2px 2px lightgray, -1px 2px 2px lightgray,
+    0 -1px 2px rgb(229, 231, 235);
+  transform-origin: top;
+  transform: scale(1, 0);
+  transition: transform 0.5s ease-out;
+  li {
+    padding: 0.65rem 1rem;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+
+    *:last-child {
+      display: inline-block;
+      margin-left: 1em;
+    }
+
+    &:last-child {
+      border-top: 1px solid lightgray;
+    }
+
+    .icon,
+    img {
+      font-size: 1rem;
+    }
+    &:hover {
+      background-color: rgba(230, 230, 230, 0.4);
+    }
+  }
+
+  &.active {
+    transform: scale(1);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 17%;
+    width: 1.5em;
+    height: 1.5em;
+    transform: rotate(45deg) translateY(-50%);
+    background-color: #fff;
+    box-shadow: -3px -3px 4px rgb(229, 231, 235);
+  }
+}
