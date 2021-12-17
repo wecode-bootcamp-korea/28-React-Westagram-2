@@ -21,18 +21,16 @@ const Login = () => {
 
   const changeIdInput = e => {
     setIdInput(e.target.value);
-    if (idInput.indexOf('@') !== -1) setIsValidatedId(true);
-    else setIsValidatedId(false);
-    if (isValidatedId && isValidatedPw) setClassOfBtn('blue');
-    else setClassOfBtn('');
+    idInput.indexOf('@') !== -1
+      ? setIsValidatedId(true)
+      : setIsValidatedId(false);
+    isValidatedId && isValidatedPw ? setClassOfBtn('blue') : setClassOfBtn('');
   };
 
   const changePwInput = e => {
     setPwInput(e.target.value);
-    if (pwInput.length > 4) setIsValidatedPw(true);
-    else setIsValidatedPw(false);
-    if (isValidatedId && isValidatedPw) setClassOfBtn('blue');
-    else setClassOfBtn('');
+    pwInput.length > 4 ? setIsValidatedPw(true) : setIsValidatedPw(false);
+    isValidatedId && isValidatedPw ? setClassOfBtn('blue') : setClassOfBtn('');
   };
 
   return (
