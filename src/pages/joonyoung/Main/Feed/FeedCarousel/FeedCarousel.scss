@@ -49,17 +49,18 @@
   position: absolute;
   left: 0;
   right: 0;
-  height: 1rem;
+  margin-top: 0.675rem;
   @include mixin.flex($justify: center, $align: center);
-  gap: 1em;
+  gap: 0.25em;
   cursor: pointer;
 
   .slide_btn {
-    min-width: 0.675rem;
-    min-height: 0.675rem;
+    min-width: 0.475rem;
+    min-height: 0.475rem;
     border: 1px solid lightgray;
     border-radius: 50%;
-    transition: all 0.7s ease-out;
+    background-color: lightgray;
+    transition: all 0.2s ease-out;
 
     &.current {
       background-color: color.$clr-primary;
