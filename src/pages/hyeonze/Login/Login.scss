@@ -51,6 +51,10 @@ body {
           border-radius: 4px;
           font-size: 16px;
           color: #fff;
+
+          &.blue {
+            opacity: 1;
+          }
         }
       }
       p {

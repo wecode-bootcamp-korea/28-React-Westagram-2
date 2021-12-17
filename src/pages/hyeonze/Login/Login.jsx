@@ -12,16 +12,27 @@ const Login = () => {
     navigate('/main-hyeonze');
   };
 
-  // 사용자 데이터 저장
-  const [idInput, handleIdInput] = useState('');
-  const [pwInput, handlePwInput] = useState('');
+  // 사용자 데이터 저장 && 버튼활성화
+  const [idInput, setIdInput] = useState('');
+  const [pwInput, setPwInput] = useState('');
+  const [classOfBtn, setClassOfBtn] = useState('');
+  const [isValidatedId, setIsValidatedId] = useState(false);
+  const [isValidatedPw, setIsValidatedPw] = useState(false);
 
   const changeIdInput = e => {
-    handleIdInput(e.target.value);
+    setIdInput(e.target.value);
+    if (idInput.indexOf('@') !== -1) setIsValidatedId(true);
+    else setIsValidatedId(false);
+    if (isValidatedId && isValidatedPw) setClassOfBtn('blue');
+    else setClassOfBtn('');
   };
 
   const changePwInput = e => {
-    handlePwInput(e.target.value);
+    setPwInput(e.target.value);
+    if (pwInput.length > 4) setIsValidatedPw(true);
+    else setIsValidatedPw(false);
+    if (isValidatedId && isValidatedPw) setClassOfBtn('blue');
+    else setClassOfBtn('');
   };
 
   return (
@@ -42,7 +53,9 @@ const Login = () => {
             onChange={changePwInput}
           />
           {/* <Link to="/main">로그인</Link> */}
-          <span onClick={goToMain}>로그인</span>
+          <span className={classOfBtn} onClick={goToMain}>
+            로그인
+          </span>
         </div>
         <p>비밀번호를 잊으셨나요?</p>
       </div>
