@@ -12,11 +12,12 @@ export default function LoginYoonkyeong() {
   const [password, setPassword] = useState('');
   const handleIdInput = e => {
     setId(e.target.value);
-    // console.log(id);
-    // 여기서 콘솔을 찍어서 value가 아이디값으로 들어오는 걸 보고싶었는데, 한줄 늦게 콘솔이 찍힙니다.
   };
   const handlePasswordInput = e => {
     setPassword(e.target.value);
+  };
+  const checkCondition = e => {
+    return (id.includes('@') && password.length) > 5 ? true : false;
   };
   return (
     <div className="login">
@@ -28,16 +29,24 @@ export default function LoginYoonkyeong() {
           type="text"
           id="idInput"
           onChange={handleIdInput}
+          onKeyUp={checkCondition}
           placeholder="전화번호, 사용자 이름 또는 이메일"
         />
         <input
           type="password"
           id="passwordInput"
           onChange={handlePasswordInput}
+          onKeyUp={checkCondition}
           placeholder="비밀번호"
         />
-        <input type="button" id="btnLogin" onClick={goToMain} value="로그인" />
-        <div className="forgotPassword">비밀번호를 잊으셨나요?</div>
+        <button
+          className={checkCondition() ? 'validBtn' : 'unvalidBtn'}
+          disabled={checkCondition() ? false : 'disabled'}
+          onClick={goToMain}
+        >
+          로그인
+        </button>
+        <div className="forgotPassword"> 비밀번호를 잊으셨나요? </div>
       </div>
     </div>
   );
