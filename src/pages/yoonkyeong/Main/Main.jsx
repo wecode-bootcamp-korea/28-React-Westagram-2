@@ -1,5 +1,5 @@
 import React from 'react';
-import './Main.scss';
+import '../Main/Main.scss';
 import { BiHeart } from 'react-icons/bi';
 import { BiMessageRounded } from 'react-icons/bi';
 import { BiPaperPlane } from 'react-icons/bi';
@@ -10,7 +10,7 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi';
 export default function MainYoonkyeong() {
   return (
     <main>
-      <div className="feedsYK">
+      <div className="feeds">
         <div className="article">
           <div className="articleHeader">
             <div className="publisherProfile">
