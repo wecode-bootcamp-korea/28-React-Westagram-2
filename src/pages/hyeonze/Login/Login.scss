@@ -5,6 +5,8 @@ body {
   background: clr.$bg-login;
 
   .login {
+    position: relative;
+    top: 130px;
     #wrapper {
       @include mixin.flex($align: center);
       // display: flex;
