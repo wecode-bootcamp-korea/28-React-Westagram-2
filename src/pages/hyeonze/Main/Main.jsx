@@ -110,19 +110,7 @@ const Main = () => {
                   <GrBookmark className="" />
                 </span>
               </div>
-              <div className="comments">
-                <span>4 Likes</span>
-                <span>
-                  <strong>canon_mj </strong>위워크에서 진행한 베이킹 클래스...
-                  <small> 더보기</small>
-                </span>
-                <span>
-                  <strong>neceosecius </strong>거봐 좋았잖아~~~~
-                  <small> 42분전</small>
-                  {/* <i className="far fa-heart hearts" /> */}
-                  <AiOutlineHeart className="hearts" />
-                </span>
-              </div>
+              <Comments />
               <form className="add_comments">
                 <input
                   type="text"
@@ -220,6 +208,23 @@ const Main = () => {
           </div>
         </main>
       </div>
+    </div>
+  );
+};
+
+const Comments = () => {
+  return (
+    <div className="comments">
+      <span>4 Likes</span>
+      <span>
+        <strong>canon_mj </strong>위워크에서 진행한 베이킹 클래스...
+        <small> 더보기</small>
+      </span>
+      <span>
+        <strong>neceosecius </strong>거봐 좋았잖아~~~~
+        <small> 42분전</small>
+        <AiOutlineHeart className="hearts" />
+      </span>
     </div>
   );
 };
