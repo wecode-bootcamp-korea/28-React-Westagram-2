@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.scss';
 import '../../../styles/common.scss';
@@ -9,6 +9,22 @@ function LoginDaeyeong() {
     navigate('/main-daeyeong');
   };
 
+  const [idValue, saveIdData] = useState('');
+  // console.log(idValue);
+
+  function handleIdInput(event) {
+    saveIdData(event.target.value);
+    // console.log(event.target.value);
+  }
+
+  const [pwValue, savePwData] = useState('');
+  // console.log(pwValue);
+
+  function handlePwInput(event) {
+    savePwData(event.target.value);
+    // console.log(event.target.value);
+  }
+
   return (
     <main className="login_main">
       <div className="login_wrapper">
@@ -17,11 +33,17 @@ function LoginDaeyeong() {
         </div>
         <div className="login_container">
           <input
+            onChange={handleIdInput}
             className="login_email"
             placeholder="전화번호, 사용자 이름 또는 이메일"
           />
 
-          <input type="password" className="login_pw" placeholder="비밀번호" />
+          <input
+            onChange={handlePwInput}
+            type="password"
+            className="login_pw"
+            placeholder="비밀번호"
+          />
           <div>
             <button onClick={goToMain} className="login_btn">
               로그인

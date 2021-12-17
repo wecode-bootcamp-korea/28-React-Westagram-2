@@ -94,7 +94,7 @@ function MainDaeyeong() {
                 alt="사진"
               />
             </div>
-            <div clclassNameass="aside_name">
+            <div className="aside_name">
               <h4>Daeyeong_Yang</h4>
               <div>Googler</div>
             </div>
