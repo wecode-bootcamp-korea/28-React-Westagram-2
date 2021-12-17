@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   AiFillHeart,
   AiOutlineHeart,
@@ -9,6 +9,13 @@ import { GrBookmark } from 'react-icons/gr';
 import './Main.scss';
 
 const Main = () => {
+  const [commentVal, setCommentVal] = useState('');
+
+  const handleInput = e => {
+    setCommentVal(e.target.value);
+  };
+
+  const uploadComment = e => {};
   return (
     <div className="main">
       <div className="nav_color" />
@@ -116,14 +123,17 @@ const Main = () => {
                   <AiOutlineHeart className="hearts" />
                 </span>
               </div>
-              <div className="add_comments">
+              <form className="add_comments">
                 <input
                   type="text"
                   placeholder="댓글 달기..."
                   className="input_upload"
+                  onChange={handleInput}
                 />
-                <button className="btn_upload">게시</button>
-              </div>
+                <button className="btn_upload" onClick={uploadComment}>
+                  게시
+                </button>
+              </form>
             </article>
           </div>
           <div className="main-right">
