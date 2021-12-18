@@ -64,7 +64,10 @@ const FeedComment = ({ setLikes }) => {
           onInput={e => setNewComment(e.target.value)}
           value={newComment}
         />
-        <button className="add__comment" onClick={handleAddNewComment}>
+        <button
+          className={`add__comment ${newComment ? 'active' : ''}`}
+          onClick={handleAddNewComment}
+        >
           {' '}
           게시
         </button>
