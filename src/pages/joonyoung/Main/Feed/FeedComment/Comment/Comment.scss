@@ -1,0 +1,51 @@
+@use '../../../../../../styles/color' as color;
+@use '../../../../../../styles/mixin' as mixin;
+
+li.comment {
+  height: 1.75rem;
+  position: relative; // for positioning front section on top
+  overflow: hidden; // for do not showing overflown slided front
+  font-size: 0.8rem;
+
+  .delete {
+    height: 100%;
+    @include mixin.flex($justify: flex-end);
+    background-color: rgb(237, 74, 86);
+
+    svg {
+      padding: 0.25em;
+      width: 9%;
+      height: 100%;
+      display: inline-flex;
+      justify-content: center;
+      font-size: 0.975rem;
+      font-weight: bold;
+      color: rgb(248 250 252);
+      cursor: pointer;
+      transition: all 0.4s ease-in;
+
+      &:first-child {
+        background-color: rgb(156 163 175);
+      }
+
+      &:hover {
+        transform: scale(1.06);
+      }
+    }
+  }
+
+  .front {
+    padding: 0 1rem;
+    background-color: #fff;
+    transition: transform 0.4s ease-in;
+    @include mixin.flex($justify: flex-end);
+    position: absolute;
+    inset: 0;
+
+    svg {
+      margin-left: auto;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}

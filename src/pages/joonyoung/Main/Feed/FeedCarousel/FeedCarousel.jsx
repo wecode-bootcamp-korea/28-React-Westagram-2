@@ -29,7 +29,7 @@ const FeedCarousel = () => {
   }, [currIdx]);
 
   return (
-    <section className="">
+    <section>
       <article className="feed__carousel">
         <BsFillArrowLeftCircleFill
           size="24"
