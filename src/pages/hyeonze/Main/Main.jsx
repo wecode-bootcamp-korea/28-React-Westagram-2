@@ -4,6 +4,7 @@ import {
   AiOutlineHeart,
   AiOutlineComment,
   AiOutlineUpload,
+  AiFillDelete,
 } from 'react-icons/ai';
 import { GrBookmark } from 'react-icons/gr';
 import './Main.scss';
@@ -216,11 +217,11 @@ const Main = () => {
             </div>
             <div className="main-right-copy">
               <span>
-                <span>Instagram 정보</span> &middot; <span>지원</span> &middot;{' '}
-                <span>홍보 센터</span> &middot; <span>API</span> &middot;{' '}
-                <span>채용 정보</span> &middot; <span>개인정보 처리방침</span>{' '}
-                &middot; <span>약관</span> &middot; <span>디렉터리</span>{' '}
-                &middot; <span>프로필</span> &middot; <span>해시태그</span>{' '}
+                <span>Instagram 정보</span> &middot; <span>지원</span> &middot;
+                <span>홍보 센터</span> &middot; <span>API</span> &middot;
+                <span>채용 정보</span> &middot; <span>개인정보 처리방침</span>
+                &middot; <span>약관</span> &middot; <span>디렉터리</span>
+                &middot; <span>프로필</span> &middot; <span>해시태그</span>
                 &middot; <span>언어</span>
               </span>
               <span>&copy; 2019 INSTAGRAM</span>
@@ -232,19 +233,18 @@ const Main = () => {
   );
 };
 
-const Comment = props => {
+const Comment = ({ commentVal }) => {
   // const [comments, setComments] = useState(props.commentVal);
-  // console.log(comments);
-  // console.log(props.commentVal);
 
   return (
     <>
-      {props.commentVal.map((el, i) => {
+      {commentVal.map((el, i) => {
         return (
           <span key={i}>
-            <strong>{props.commentVal[i].userId} </strong>
-            {props.commentVal[i].value}
-            <small> {props.commentVal[i].time}</small>
+            <strong>{commentVal[i].userId} </strong>
+            {commentVal[i].value}
+            <small> {commentVal[i].time}</small>
+            <AiFillDelete className="delete" />
             <AiOutlineHeart className="hearts" />
           </span>
         );
