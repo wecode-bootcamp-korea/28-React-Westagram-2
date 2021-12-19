@@ -360,26 +360,24 @@
 
   @media screen and (max-width: 1000px) {
     .main {
-      #wrap {
-        .nav_wrap {
-          nav {
-            .logo {
-              span {
-                display: none;
-              }
-            }
-            .logo:before {
+      .nav_wrap {
+        nav {
+          .logo {
+            span {
               display: none;
             }
           }
+          .logo:before {
+            display: none;
+          }
         }
-        .feeds {
-          width: 100%;
-        }
+      }
+      .feeds {
+        width: 100%;
+      }
 
-        .main-right {
-          display: none;
-        }
+      .main-right {
+        display: none;
       }
     }
   }
