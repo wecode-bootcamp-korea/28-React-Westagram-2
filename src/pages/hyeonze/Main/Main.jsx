@@ -9,7 +9,15 @@ import { GrBookmark } from 'react-icons/gr';
 import './Main.scss';
 
 const Main = () => {
-  const [commentVal, setCommentVal] = useState('');
+  const [commentVal, setCommentVal] = useState([
+    // {username, value,  times}
+    {
+      userId: 'canon_mj',
+      value: '위워크에서 진행한 베이킹 클래스...',
+      time: '더보기',
+    },
+    { userId: 'neceosecius', value: '거봐 좋았잖아~~~~', time: '42분전' },
+  ]);
 
   const handleInput = e => {
     setCommentVal(e.target.value);
@@ -94,23 +102,22 @@ const Main = () => {
               <img src="images/hyeonze/fig.jpg" alt="무화과" />
               <div className="bottom_menu">
                 <span>
-                  {/* <i className="fas fa-heart" /> */}
                   <AiFillHeart className="" />
                 </span>
                 <span>
-                  {/* <i className="far fa-comment" /> */}
                   <AiOutlineComment className="" />
                 </span>
                 <span>
-                  {/* <i className="fas fa-upload" /> */}
                   <AiOutlineUpload className="" />
                 </span>
                 <span>
-                  {/* <i className="far fa-bookmark" /> */}
                   <GrBookmark className="" />
                 </span>
               </div>
-              <Comments />
+              <div className="comments">
+                <span>4 Likes</span>
+                <Comment commentVal={commentVal} />
+              </div>
               <form className="add_comments">
                 <input
                   type="text"
@@ -212,20 +219,24 @@ const Main = () => {
   );
 };
 
-const Comments = () => {
+const Comment = props => {
+  // const [comments, setComments] = useState(props.commentVal);
+  // console.log(comments);
+  // console.log(props.commentVal);
+
   return (
-    <div className="comments">
-      <span>4 Likes</span>
-      <span>
-        <strong>canon_mj </strong>위워크에서 진행한 베이킹 클래스...
-        <small> 더보기</small>
-      </span>
-      <span>
-        <strong>neceosecius </strong>거봐 좋았잖아~~~~
-        <small> 42분전</small>
-        <AiOutlineHeart className="hearts" />
-      </span>
-    </div>
+    <>
+      {props.commentVal.map((el, i) => {
+        return (
+          <span key="i">
+            <strong>{props.commentVal[i].userId} </strong>
+            {props.commentVal[i].value}
+            <small> {props.commentVal[i].time}</small>
+            <AiOutlineHeart className="hearts" />
+          </span>
+        );
+      })}
+    </>
   );
 };
 
