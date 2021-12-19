@@ -10,7 +10,6 @@ import './Main.scss';
 
 const Main = () => {
   const [commentVal, setCommentVal] = useState([
-    // {username, value,  times}
     {
       userId: 'canon_mj',
       value: '위워크에서 진행한 베이킹 클래스...',
@@ -18,12 +17,26 @@ const Main = () => {
     },
     { userId: 'neceosecius', value: '거봐 좋았잖아~~~~', time: '42분전' },
   ]);
+  const [addedCommentVal, setAddedCommentVal] = useState(commentVal);
+  const [currInputVal, setCurrInputVal] = useState('');
+  const [classOfBtn, setClassOfBtn] = useState('');
 
   const handleInput = e => {
-    setCommentVal(e.target.value);
+    e.target.value ? setClassOfBtn('blue') : setClassOfBtn('');
+    if (e.keyCode === 13) uploadComment();
+    setCurrInputVal(e.target.value);
   };
 
-  const uploadComment = e => {};
+  const uploadComment = e => {
+    e.preventDefault();
+    addedCommentVal.push({
+      userId: 'userid',
+      value: currInputVal,
+      time: '방금전',
+    });
+    setCommentVal(addedCommentVal);
+  };
+
   return (
     <div className="main">
       <div className="nav_color" />
@@ -125,7 +138,7 @@ const Main = () => {
                   className="input_upload"
                   onChange={handleInput}
                 />
-                <button className="btn_upload" onClick={uploadComment}>
+                <button className={classOfBtn} onClick={uploadComment}>
                   게시
                 </button>
               </form>
@@ -228,7 +241,7 @@ const Comment = props => {
     <>
       {props.commentVal.map((el, i) => {
         return (
-          <span key="i">
+          <span key={i}>
             <strong>{props.commentVal[i].userId} </strong>
             {props.commentVal[i].value}
             <small> {props.commentVal[i].time}</small>

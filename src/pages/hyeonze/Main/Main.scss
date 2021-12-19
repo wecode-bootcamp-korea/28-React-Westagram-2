@@ -389,6 +389,10 @@
               color: clr.$clr-primary;
               opacity: 0.5;
               background: #fff;
+
+              &.blue {
+                opacity: 1;
+              }
             }
           }
         }
