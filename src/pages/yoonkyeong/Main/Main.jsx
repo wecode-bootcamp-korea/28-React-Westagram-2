@@ -1,13 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Main/Main.scss';
-import { BiHeart } from 'react-icons/bi';
-import { BiMessageRounded } from 'react-icons/bi';
-import { BiPaperPlane } from 'react-icons/bi';
-import { BiBookmark } from 'react-icons/bi';
-import { BiSmile } from 'react-icons/bi';
-import { BiDotsHorizontalRounded } from 'react-icons/bi';
+import {
+  BiHeart,
+  BiMessageRounded,
+  BiPaperPlane,
+  BiBookmark,
+  BiSmile,
+  BiDotsHorizontalRounded,
+  BiUserCircle,
+  BiX,
+} from 'react-icons/bi';
 
 export default function MainYoonkyeong() {
+  const [comment, setComment] = useState('');
+  const [replies, setReplies] = useState([]);
+
+  const inputCommemt = e => {
+    setComment(e.target.value);
+  };
+  const inputComment = e => {
+    const add = replies;
+    if (comment.length > 1) {
+      add.push(comment);
+    }
+    setReplies(replies);
+    setComment(' ');
+  };
+  // 이렇게 짜면 리플들이 여러개 원하는 형식으로 들어오긴 하는데요, 첫번째 코멘트가 안들
+  const pressClick = e => {
+    inputComment();
+    console.log(comment, replies);
+  };
+  const pressEnter = e => {
+    if (e.key === 'Enter') {
+      inputComment();
+      console.log(comment, replies);
+    }
+  };
+  const validateInput = e => {
+    return comment.length > 1 ? false : true;
+  };
+
+  const userName = 'Dummie';
   return (
     <main>
       <div className="feeds">
@@ -40,7 +74,19 @@ export default function MainYoonkyeong() {
           <div className="likeWrapper">
             <b>나</b>님 <b>외 10명</b>이 좋아합니다
           </div>
-          <div className="commentWrapper" />
+          <div className="commentWrapper">
+            <ul className="repliy">
+              {replies.map(x => (
+                <li className="submittedComment">
+                  <BiUserCircle />
+                  <span className="userName">{userName}</span>
+                  {x}
+                  <BiX className="deleteComment" />
+                  <BiHeart className="likeThisComment" />
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="timeWrapper">42분 전</div>
           <div className="commentInputWapper">
             <BiSmile size="35" />
@@ -49,11 +95,15 @@ export default function MainYoonkyeong() {
               type="text"
               name="comment"
               placeholder="댓글 달기..."
+              onChange={inputCommemt}
+              onKeyPress={pressEnter}
+              value={comment}
             />
             <input
               className="commentInputButton"
               type="button"
-              disabled="disabled"
+              disabled={validateInput() ? true : false}
+              onClick={pressClick}
               value="게시"
             />
           </div>

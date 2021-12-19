@@ -7,7 +7,11 @@ export default function LoginYoonkyeong() {
   const goToMain = () => {
     navigate('/main-yoonkyeong');
   };
-
+  const onKeyPress = e => {
+    if (e.key === 'Enter') {
+      goToMain();
+    }
+  };
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const handleIdInput = e => {
@@ -30,6 +34,7 @@ export default function LoginYoonkyeong() {
           id="idInput"
           onChange={handleIdInput}
           onKeyUp={checkCondition}
+          onKeyPress={onKeyPress}
           placeholder="전화번호, 사용자 이름 또는 이메일"
         />
         <input
@@ -37,10 +42,13 @@ export default function LoginYoonkyeong() {
           id="passwordInput"
           onChange={handlePasswordInput}
           onKeyUp={checkCondition}
+          onKeyPress={onKeyPress}
           placeholder="비밀번호"
         />
         <button
           className={checkCondition() ? 'validBtn' : 'unvalidBtn'}
+          //backgroundcolor를 바꾸려다 보니 클래스 이름을 바꾸게 되었습니다.
+          //scss페이지의 요소 하나만 바꾸는 방법은 없을까요?
           disabled={checkCondition() ? false : 'disabled'}
           onClick={goToMain}
         >

@@ -82,6 +82,23 @@ main {
         padding: 0px 16px;
         display: flex;
         flex-direction: column;
+
+        .submittedComment {
+          position: relative;
+
+          .userName {
+            font-weight: bold;
+          }
+
+          .deleteComment {
+            position: absolute;
+            right: 20px;
+          }
+          .likeThisComment {
+            position: absolute;
+            right: 5px;
+          }
+        }
       }
 
       .timeWrapper {
@@ -114,27 +131,10 @@ main {
         }
 
         .commentInputButton {
-          color: #c0dffd;
+          color: color.$clr-primary;
           border: none;
           background-color: white;
         }
-      }
-
-      /* 태어난 코멘트들 */
-
-      .comm {
-        position: relative;
-      }
-      .userName {
-        font-weight: bold;
-      }
-      .commHeart {
-        position: absolute;
-        right: 5px;
-      }
-      .commDelete {
-        position: absolute;
-        right: 30px;
       }
     }
   }
