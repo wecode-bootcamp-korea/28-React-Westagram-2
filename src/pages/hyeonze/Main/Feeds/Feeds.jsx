@@ -13,7 +13,7 @@ export default function Feeds() {
     },
     { userId: 'neceosecius', value: '거봐 좋았잖아~~~~', time: '42분전' },
   ]);
-  const [addedCommentVal, setAddedCommentVal] = useState(commentVal);
+  const addedCommentVal = commentVal;
   const [currInputVal, setCurrInputVal] = useState('');
   const [classOfBtn, setClassOfBtn] = useState('');
 
