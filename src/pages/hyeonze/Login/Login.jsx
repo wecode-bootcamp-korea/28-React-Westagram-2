@@ -37,7 +37,7 @@ const Login = () => {
     <div className="login">
       <div id="wrapper">
         <h1>westagram</h1>
-        <div className="login_form">
+        <form className="login_form">
           <input
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -54,7 +54,7 @@ const Login = () => {
           <span className={classOfBtn ? 'blue' : ''} onClick={goToMain}>
             로그인
           </span>
-        </div>
+        </form>
         <p>비밀번호를 잊으셨나요?</p>
       </div>
     </div>
