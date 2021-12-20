@@ -13,9 +13,9 @@ export default function Feeds() {
     },
     { userId: 'neceosecius', value: '거봐 좋았잖아~~~~', time: '42분전' },
   ]);
-  const addedCommentVal = commentVal;
-  const [currInputVal, setCurrInputVal] = useState('');
+  const addedCommentVal = [...commentVal];
   const [classOfBtn, setClassOfBtn] = useState('');
+  const [currInputVal, setCurrInputVal] = useState();
 
   const handleInput = e => {
     e.target.value ? setClassOfBtn('blue') : setClassOfBtn('');
@@ -31,7 +31,10 @@ export default function Feeds() {
       time: '방금전',
     });
     setCommentVal(addedCommentVal);
+    setCurrInputVal('');
+    setClassOfBtn('');
   };
+
   return (
     <div className="feeds">
       <article>
@@ -69,6 +72,7 @@ export default function Feeds() {
             placeholder="댓글 달기..."
             className="input_upload"
             onChange={handleInput}
+            value={currInputVal}
           />
           <button className={classOfBtn} onClick={uploadComment}>
             게시
