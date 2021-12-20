@@ -89,15 +89,6 @@ main {
           .userName {
             font-weight: bold;
           }
-
-          .deleteComment {
-            position: absolute;
-            right: 20px;
-          }
-          .likeThisComment {
-            position: absolute;
-            right: 5px;
-          }
         }
       }
 
@@ -130,10 +121,16 @@ main {
           }
         }
 
-        .commentInputButton {
+        .validatedBtn {
           color: color.$clr-primary;
           border: none;
           background-color: white;
+        }
+        .unvalidatedBtn {
+          color: color.$clr-primary;
+          border: none;
+          background-color: white;
+          opacity: 0.4;
         }
       }
     }

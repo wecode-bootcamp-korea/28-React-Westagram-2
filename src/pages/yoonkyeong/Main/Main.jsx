@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Comment from '../component/Comment';
 import '../Main/Main.scss';
 import {
   BiHeart,
@@ -7,8 +8,6 @@ import {
   BiBookmark,
   BiSmile,
   BiDotsHorizontalRounded,
-  BiUserCircle,
-  BiX,
 } from 'react-icons/bi';
 
 export default function MainYoonkyeong() {
@@ -18,27 +17,25 @@ export default function MainYoonkyeong() {
   const inputCommemt = e => {
     setComment(e.target.value);
   };
-  const inputComment = e => {
-    const add = replies;
-    if (comment.length > 1) {
-      add.push(comment);
+  const submitComment = () => {
+    if (comment !== '') {
+      replies.push(comment);
+      setReplies(replies);
+      setComment('');
+    } else {
+      alert('한 글자 이상 입력하세요');
     }
-    setReplies(replies);
-    setComment(' ');
   };
-  // 이렇게 짜면 리플들이 여러개 원하는 형식으로 들어오긴 하는데요, 첫번째 코멘트가 안들
-  const pressClick = e => {
-    inputComment();
-    console.log(comment, replies);
+  const pressClick = () => {
+    submitComment();
   };
   const pressEnter = e => {
     if (e.key === 'Enter') {
-      inputComment();
-      console.log(comment, replies);
+      submitComment();
     }
   };
-  const validateInput = e => {
-    return comment.length > 1 ? false : true;
+  const validateInput = () => {
+    return comment.length >= 1 ? false : true;
   };
 
   const userName = 'Dummie';
@@ -75,6 +72,7 @@ export default function MainYoonkyeong() {
             <b>나</b>님 <b>외 10명</b>이 좋아합니다
           </div>
           <div className="commentWrapper">
+            {/* !! Mission 3 area !!
             <ul className="repliy">
               {replies.map(x => (
                 <li className="submittedComment">
@@ -84,8 +82,10 @@ export default function MainYoonkyeong() {
                   <BiX className="deleteComment" />
                   <BiHeart className="likeThisComment" />
                 </li>
+                // 해당 라인에 대해 키를 사용할 수 없다는게 무슨 의미인지?
               ))}
-            </ul>
+            </ul> */}
+            <Comment userName={userName} submittedComment={replies} />
           </div>
           <div className="timeWrapper">42분 전</div>
           <div className="commentInputWapper">
@@ -100,7 +100,7 @@ export default function MainYoonkyeong() {
               value={comment}
             />
             <input
-              className="commentInputButton"
+              className={validateInput() ? 'unvalidatedBtn' : 'validatedBtn'}
               type="button"
               disabled={validateInput() ? true : false}
               onClick={pressClick}
