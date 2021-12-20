@@ -5,12 +5,17 @@ import '../../../styles/common.scss';
 
 function LoginDaeyeong() {
   const navigate = useNavigate();
+
   const goToMain = () => {
     navigate('/main-daeyeong');
   };
 
   const [idValue, saveIdData] = useState('');
   // console.log(idValue);
+
+  //1. idValue에 @가 포함되어 있는가? 를 확인하는 코드
+  //2. pwValue가 5글자 이상인지? 를 확인하는 코드
+  //삼항 연산자를 이용해서 1번과 2번 조건이 맞으면 버튼 색상이 변하게 하는 코드
 
   function handleIdInput(event) {
     saveIdData(event.target.value);
@@ -25,13 +30,23 @@ function LoginDaeyeong() {
     // console.log(event.target.value);
   }
 
+  const [btnColorActive, btnColorChange] = useState('#c0dffd');
+
+  function btnStatusChange(event) {
+    btnColorChange(
+      idValue.includes('@') && pwValue.length > 4 ? 'blue' : '#c0dffd'
+    );
+  }
+
+  console.log(btnColorActive);
+
   return (
     <main className="login_main">
       <div className="login_wrapper">
         <div className="login_logo">
           <h1>Westagram</h1>
         </div>
-        <div className="login_container">
+        <div className="login_container" onChange={btnStatusChange}>
           <input
             onChange={handleIdInput}
             className="login_email"
@@ -45,7 +60,11 @@ function LoginDaeyeong() {
             placeholder="비밀번호"
           />
           <div>
-            <button onClick={goToMain} className="login_btn">
+            <button
+              style={{ backgroundColor: btnColorActive }}
+              onClick={goToMain}
+              className="login_btn"
+            >
               로그인
             </button>
           </div>
