@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
@@ -21,17 +21,25 @@ const Login = () => {
 
   const changeIdInput = e => {
     setIdInput(e.target.value);
-    idInput.indexOf('@') !== -1
-      ? setIsValidatedId(true)
-      : setIsValidatedId(false);
-    isValidatedId && isValidatedPw ? setClassOfBtn(true) : setClassOfBtn(false);
+    // idInput.indexOf('@') !== -1
+    //   ? setIsValidatedId(true)
+    //   : setIsValidatedId(false);
+    // isValidatedId && isValidatedPw ? setClassOfBtn(true) : setClassOfBtn(false);
   };
 
   const changePwInput = e => {
     setPwInput(e.target.value);
+    // pwInput.length > 4 ? setIsValidatedPw(true) : setIsValidatedPw(false);
+    // isValidatedId && isValidatedPw ? setClassOfBtn(true) : setClassOfBtn(false);
+  };
+
+  useEffect(() => {
+    idInput.indexOf('@') !== -1
+      ? setIsValidatedId(true)
+      : setIsValidatedId(false);
     pwInput.length > 4 ? setIsValidatedPw(true) : setIsValidatedPw(false);
     isValidatedId && isValidatedPw ? setClassOfBtn(true) : setClassOfBtn(false);
-  };
+  }, [idInput, pwInput, isValidatedId, isValidatedPw]);
 
   return (
     <div className="login">
