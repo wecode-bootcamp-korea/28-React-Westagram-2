@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { AiFillHeart, AiOutlineComment, AiOutlineUpload } from 'react-icons/ai';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { GrBookmark } from 'react-icons/gr';
@@ -31,17 +31,6 @@ export default function Feeds({ userId, profileImg, img, comments }) {
     setCurrInputVal('');
     setClassOfBtn('');
   };
-
-  // commentData.json
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/data/commentData.json', {
-  //     method: 'GET',
-  //   }).then(res =>
-  //     res.json().then(data => {
-  //       setCommentVal(data);
-  //     })
-  //   );
-  // }, []);
 
   return (
     <div className="feeds">

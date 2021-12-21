@@ -16,7 +16,7 @@ const Main = () => {
         for (let i in data) currInitialComment.push(data[i].comment);
       })
     );
-  }, []);
+  });
 
   return (
     <div className="main">
