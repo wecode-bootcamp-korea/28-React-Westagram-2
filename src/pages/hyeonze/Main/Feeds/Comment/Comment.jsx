@@ -5,7 +5,7 @@ import './Comment.scss';
 const Comment = ({ commentVal }) => {
   const [classOfHeart, setClassOfHeart] = useState('hearts');
 
-  const putLike = e => {
+  const putLike = () => {
     if (classOfHeart === 'hearts') {
       setClassOfHeart(classOfHeart + ' red');
     } else if (classOfHeart === 'hearts red') {
