@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Comment from '../component/Comment';
+import CommentList from '../component/CommentList';
 import '../Main/Main.scss';
 import {
   BiHeart,
@@ -26,9 +26,9 @@ export default function MainYoonkyeong() {
       alert('한 글자 이상 입력하세요');
     }
   };
-  const pressClick = () => {
+  function pressClick() {
     submitComment();
-  };
+  }
   const pressEnter = e => {
     if (e.key === 'Enter') {
       submitComment();
@@ -38,7 +38,6 @@ export default function MainYoonkyeong() {
     return comment.length >= 1 ? false : true;
   };
 
-  const userName = 'Dummie';
   return (
     <main>
       <div className="feeds">
@@ -47,8 +46,8 @@ export default function MainYoonkyeong() {
             <div className="publisherProfile">
               <div className="publisherImage">
                 <img
-                  src="/images/yoonkyeong/angrycat-crop.jpg"
                   alt="angrycat"
+                  src="/images/yoonkyeong/angrycat-crop.jpg"
                 />
               </div>
               <div className="publisherId">user_name_angry_cat49</div>
@@ -58,8 +57,8 @@ export default function MainYoonkyeong() {
           <div className="articleWrapper">
             <img
               className="articleImage"
-              src="images/yoonkyeong/chorong-crop.jpg"
               alt="chorong"
+              src="images/yoonkyeong/chorong-crop.jpg"
             />
           </div>
           <div className="articleIconsWrapper">
@@ -72,20 +71,7 @@ export default function MainYoonkyeong() {
             <b>나</b>님 <b>외 10명</b>이 좋아합니다
           </div>
           <div className="commentWrapper">
-            {/* !! Mission 3 area !!
-            <ul className="repliy">
-              {replies.map(x => (
-                <li className="submittedComment">
-                  <BiUserCircle />
-                  <span className="userName">{userName}</span>
-                  {x}
-                  <BiX className="deleteComment" />
-                  <BiHeart className="likeThisComment" />
-                </li>
-                // 해당 라인에 대해 키를 사용할 수 없다는게 무슨 의미인지?
-              ))}
-            </ul> */}
-            <Comment userName={userName} submittedComment={replies} />
+            <CommentList submittedComment={replies} />
           </div>
           <div className="timeWrapper">42분 전</div>
           <div className="commentInputWapper">
@@ -103,8 +89,8 @@ export default function MainYoonkyeong() {
               className={validateInput() ? 'unvalidatedBtn' : 'validatedBtn'}
               type="button"
               disabled={validateInput() ? true : false}
-              onClick={pressClick}
               value="게시"
+              onClick={pressClick}
             />
           </div>
         </div>
@@ -112,7 +98,7 @@ export default function MainYoonkyeong() {
       <aside>
         <div className="userInformation">
           <div className="userImage">
-            <img src="images/yoonkyeong/face-crop.jpg" alt="face" />
+            <img alt="face" src="images/yoonkyeong/face-crop.jpg" />
           </div>
           <div className="userText">
             <div className="userId">nyangstar_king</div>

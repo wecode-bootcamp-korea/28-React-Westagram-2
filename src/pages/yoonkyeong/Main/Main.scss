@@ -3,11 +3,8 @@
 
 main {
   display: flex;
-  flex-flow: row nowrap;
 
   .feeds {
-    display: flex;
-    flex-flow: column wrap;
     margin: 0px 50px 100px 100px;
 
     .article {
@@ -15,7 +12,6 @@ main {
       border: 1px solid color.$clr-border;
 
       .articleHeader {
-        height: 60px;
         display: flex;
         justify-content: space-between;
         padding: 14px 4px 14px 16px;
@@ -54,11 +50,9 @@ main {
 
       .articleIconsWrapper {
         display: flex;
-        flex-flow: row wrap;
         justify-content: space-around;
         position: relative;
         width: 140px;
-        height: 54px;
         padding: 10px 0px;
 
         img {
@@ -73,15 +67,12 @@ main {
       }
 
       .likeWrapper {
-        height: 18px;
         padding: 0px 16px;
         margin: 5px 0px 15px 0px;
       }
 
       .commentWrapper {
         padding: 0px 16px;
-        display: flex;
-        flex-direction: column;
 
         .submittedComment {
           position: relative;
@@ -138,10 +129,6 @@ main {
   /* aside */
 
   aside {
-    display: flex;
-    flex-flow: column wrap;
-    margin: 0px 50px 100px 100px;
-
     .userInformation {
       display: flex;
       margin: 0px 0px 10px 0px;
@@ -173,8 +160,6 @@ main {
     }
 
     .story {
-      @include mixin.flex($justify: flex-start, $align: center);
-      flex-flow: row wrap;
       width: 293px;
       height: 240px;
       border: 1px solid color.$clr-border;
@@ -183,9 +168,7 @@ main {
       overflow: hidden;
 
       .storyHeader {
-        width: 293px;
         display: flex;
-        flex-flow: row wrap;
         justify-content: space-between;
 
         .storyTitle,

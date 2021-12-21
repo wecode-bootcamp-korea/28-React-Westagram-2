@@ -1,6 +1,5 @@
 @use '../../../styles/mixin' as mixin;
 @use '../../../styles/color' as color;
-// 믹신 인클루드 사용법 여쭤보기
 
 body {
   background-color: color.$bg-login;
@@ -68,7 +67,7 @@ body {
       font-weight: bold;
     }
 
-    .forgotPassword {
+    .forgetPassword {
       padding-top: 30px;
       font-size: 12px;
       color: #174574;
