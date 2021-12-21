@@ -2,9 +2,13 @@
 @use '../../../../styles/color.scss' as clr;
 
 .feeds {
-  position: absolute;
+  // position: absolute;
+  position: relative;
+  // display: flex;
+  // flex-direction: column;
   top: 77px;
   width: 60%;
+  margin-bottom: 80px;
   background: #fff;
 
   .top_menu {

@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiFillHeart, AiOutlineComment, AiOutlineUpload } from 'react-icons/ai';
 import { GrBookmark } from 'react-icons/gr';
 import './Feeds.scss';
 import Comment from './Comment/Comment';
 
 export default function Feeds() {
-  const [commentVal, setCommentVal] = useState([
-    {
-      userId: 'canon_mj',
-      value: '위워크에서 진행한 베이킹 클래스...',
-      time: '더보기',
-    },
-    { userId: 'neceosecius', value: '거봐 좋았잖아~~~~', time: '42분전' },
-  ]);
+  // const [commentVal, setCommentVal] = useState([
+  //   {
+  //     userId: 'canon_mj',
+  //     value: '위워크에서 진행한 베이킹 클래스...',
+  //     time: '더보기',
+  //   },
+  //   { userId: 'neceosecius', value: '거봐 좋았잖아~~~~', time: '42분전' },
+  // ]);
+  const [commentVal, setCommentVal] = useState([]);
   const addedCommentVal = [...commentVal];
   const [classOfBtn, setClassOfBtn] = useState('');
-  const [currInputVal, setCurrInputVal] = useState();
+  const [currInputVal, setCurrInputVal] = useState('');
 
   const handleInput = e => {
     e.target.value ? setClassOfBtn('blue') : setClassOfBtn('');
@@ -26,6 +27,7 @@ export default function Feeds() {
   const uploadComment = e => {
     e.preventDefault();
     addedCommentVal.push({
+      id: addedCommentVal.length + 1,
       userId: 'userid',
       value: currInputVal,
       time: '방금전',
@@ -33,7 +35,18 @@ export default function Feeds() {
     setCommentVal(addedCommentVal);
     setCurrInputVal('');
     setClassOfBtn('');
+    console.log(commentVal);
   };
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    }).then(res =>
+      res.json().then(data => {
+        setCommentVal(data);
+      })
+    );
+  }, []);
 
   return (
     <div className="feeds">

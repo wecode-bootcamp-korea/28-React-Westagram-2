@@ -6,7 +6,7 @@
 
   .main {
     margin-top: 20px;
-    @include mixin.flex($justify: space-between, $align: flex-start);
+    // @include mixin.flex($justify: space-between, $align: flex-start);
     height: 100vh;
     position: relative;
     z-index: 10;

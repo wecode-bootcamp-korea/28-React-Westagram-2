@@ -15,22 +15,16 @@ const Login = () => {
   // 사용자 데이터 저장 && 버튼활성화
   const [idInput, setIdInput] = useState('');
   const [pwInput, setPwInput] = useState('');
-  const [classOfBtn, setClassOfBtn] = useState(false);
+  const [activateBtn, setActivateBtn] = useState(false);
   const [isValidatedId, setIsValidatedId] = useState(false);
   const [isValidatedPw, setIsValidatedPw] = useState(false);
 
   const changeIdInput = e => {
     setIdInput(e.target.value);
-    // idInput.indexOf('@') !== -1
-    //   ? setIsValidatedId(true)
-    //   : setIsValidatedId(false);
-    // isValidatedId && isValidatedPw ? setClassOfBtn(true) : setClassOfBtn(false);
   };
 
   const changePwInput = e => {
     setPwInput(e.target.value);
-    // pwInput.length > 4 ? setIsValidatedPw(true) : setIsValidatedPw(false);
-    // isValidatedId && isValidatedPw ? setClassOfBtn(true) : setClassOfBtn(false);
   };
 
   useEffect(() => {
@@ -38,7 +32,9 @@ const Login = () => {
       ? setIsValidatedId(true)
       : setIsValidatedId(false);
     pwInput.length > 4 ? setIsValidatedPw(true) : setIsValidatedPw(false);
-    isValidatedId && isValidatedPw ? setClassOfBtn(true) : setClassOfBtn(false);
+    isValidatedId && isValidatedPw
+      ? setActivateBtn(true)
+      : setActivateBtn(false);
   }, [idInput, pwInput, isValidatedId, isValidatedPw]);
 
   return (
@@ -59,9 +55,13 @@ const Login = () => {
             onChange={changePwInput}
           />
           {/* <Link to="/main">로그인</Link> */}
-          <span className={classOfBtn ? 'blue' : ''} onClick={goToMain}>
-            로그인
-          </span>
+          <input
+            className={activateBtn ? 'blue' : ''}
+            disabled={activateBtn ? false : true}
+            type="button"
+            value="로그인"
+            onClick={goToMain}
+          />
         </form>
         <p>비밀번호를 잊으셨나요?</p>
       </div>

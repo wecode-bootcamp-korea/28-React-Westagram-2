@@ -16,7 +16,7 @@ const Comment = ({ commentVal }) => {
     <>
       {commentVal.map((el, i) => {
         return (
-          <span key={i}>
+          <span key={commentVal[i].id}>
             <strong>{commentVal[i].userId} </strong>
             {commentVal[i].value}
             <small> {commentVal[i].time}</small>

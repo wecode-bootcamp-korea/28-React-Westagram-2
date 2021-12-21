@@ -6,6 +6,9 @@ const Main = () => {
   return (
     <div className="main">
       <Feeds />
+      <Feeds />
+      <Feeds />
+      <Feeds />
       <MainRight />
     </div>
   );
