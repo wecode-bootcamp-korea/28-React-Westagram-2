@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { AiFillHeart, AiOutlineComment, AiOutlineUpload } from 'react-icons/ai';
+import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { GrBookmark } from 'react-icons/gr';
 import './Feeds.scss';
 import Comment from './Comment/Comment';
 
-export default function Feeds() {
-  // const [commentVal, setCommentVal] = useState([
-  //   {
-  //     userId: 'canon_mj',
-  //     value: '위워크에서 진행한 베이킹 클래스...',
-  //     time: '더보기',
-  //   },
-  //   { userId: 'neceosecius', value: '거봐 좋았잖아~~~~', time: '42분전' },
-  // ]);
+export default function Feeds({ userId, img }) {
   const [commentVal, setCommentVal] = useState([]);
   const addedCommentVal = [...commentVal];
   const [classOfBtn, setClassOfBtn] = useState('');
@@ -35,7 +28,6 @@ export default function Feeds() {
     setCommentVal(addedCommentVal);
     setCurrInputVal('');
     setClassOfBtn('');
-    console.log(commentVal);
   };
 
   useEffect(() => {
@@ -54,13 +46,13 @@ export default function Feeds() {
         <div className="top_menu">
           <span>
             <img src="images/hyeonze/profile.jpg" alt="프로필" />
-            canon_mj
+            {userId}
           </span>
           <span>
-            <i className="fas fa-ellipsis-h" />
+            <BiDotsHorizontalRounded />
           </span>
         </div>
-        <img src="images/hyeonze/fig.jpg" alt="무화과" />
+        <img src={img} alt="무화과" />
         <div className="bottom_menu">
           <span>
             <AiFillHeart className="" />

@@ -12,6 +12,7 @@ const Comment = ({ commentVal }) => {
       setClassOfHeart('hearts');
     }
   };
+
   return (
     <>
       {commentVal.map((el, i) => {

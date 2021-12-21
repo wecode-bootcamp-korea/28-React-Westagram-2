@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "userId": "wecode1",
+    "img": "images/hyeonze/fig.jpg"
+  },
+  {
+    "id": 2,
+    "userId": "wecode2",
+    "img": "images/hyeonze/fig.jpg"
+  },
+  {
+    "id": 3,
+    "userId": "wecode3",
+    "img": "images/hyeonze/fig.jpg"
+  }
+]
