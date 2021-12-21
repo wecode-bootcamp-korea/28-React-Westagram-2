@@ -12,13 +12,15 @@ export default function Feeds({ userId, img }) {
   const [currInputVal, setCurrInputVal] = useState('');
 
   const handleInput = e => {
-    e.target.value ? setClassOfBtn('blue') : setClassOfBtn('');
+    const { value } = e.target;
+    value ? setClassOfBtn('blue') : setClassOfBtn('');
     if (e.keyCode === 13) uploadComment();
-    setCurrInputVal(e.target.value);
+    setCurrInputVal(value);
   };
 
   const uploadComment = e => {
     e.preventDefault();
+    if (!currInputVal) return;
     addedCommentVal.push({
       id: addedCommentVal.length + 1,
       userId: 'userid',
