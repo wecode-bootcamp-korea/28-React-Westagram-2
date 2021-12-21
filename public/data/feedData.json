@@ -4,18 +4,77 @@
     "userId": "wecode1",
     "profileImg": "images/hyeonze/profile1.jpg",
     "img": "images/hyeonze/img1.jpg",
-    "comment": []
+    "comment": [
+      {
+        "id": 1,
+        "userId": "1wecode",
+        "value": "1Welcome to world best coding bootcamp!",
+        "time": "30분전"
+      },
+      {
+        "id": 2,
+        "userId": "1joonsikyang",
+        "value": "1Hi there.",
+        "time": "20분전"
+      },
+      {
+        "id": 3,
+        "userId": "1jayPark",
+        "value": "1Hey.",
+        "time": "10분전"
+      }
+    ]
   },
   {
     "id": 2,
     "userId": "wecode2",
     "profileImg": "images/hyeonze/profile2.jpg",
-    "img": "images/hyeonze/img2.jpg"
+    "img": "images/hyeonze/img2.jpg",
+    "comment": [
+      {
+        "id": 1,
+        "userId": "2wecode",
+        "value": "2Welcome to world best coding bootcamp!",
+        "time": "30분전"
+      },
+      {
+        "id": 2,
+        "userId": "2joonsikyang",
+        "value": "2Hi there.",
+        "time": "20분전"
+      },
+      {
+        "id": 3,
+        "userId": "2jayPark",
+        "value": "2Hey.",
+        "time": "10분전"
+      }
+    ]
   },
   {
     "id": 3,
     "userId": "wecode3",
     "profileImg": "images/hyeonze/profile3.jpg",
-    "img": "images/hyeonze/img3.jpg"
+    "img": "images/hyeonze/img3.jpg",
+    "comment": [
+      {
+        "id": 1,
+        "userId": "3wecode",
+        "value": "3Welcome to world best coding bootcamp!",
+        "time": "30분전"
+      },
+      {
+        "id": 2,
+        "userId": "3joonsikyang",
+        "value": "3Hi there.",
+        "time": "20분전"
+      },
+      {
+        "id": 3,
+        "userId": "3jayPark",
+        "value": "3Hey.",
+        "time": "10분전"
+      }
+    ]
   }
 ]

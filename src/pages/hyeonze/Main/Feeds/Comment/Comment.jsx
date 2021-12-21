@@ -15,7 +15,7 @@ const Comment = ({ commentVal }) => {
 
   return (
     <>
-      {commentVal.map((el, i) => {
+      {commentVal.map(el => {
         return (
           <span key={el.id}>
             <strong>{el.userId} </strong>

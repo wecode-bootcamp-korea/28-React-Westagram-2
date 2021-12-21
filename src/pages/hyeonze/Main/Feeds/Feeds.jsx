@@ -5,8 +5,8 @@ import { GrBookmark } from 'react-icons/gr';
 import './Feeds.scss';
 import Comment from './Comment/Comment';
 
-export default function Feeds({ userId, profileImg, img }) {
-  const [commentVal, setCommentVal] = useState([]);
+export default function Feeds({ userId, profileImg, img, comments }) {
+  const [commentVal, setCommentVal] = useState(comments);
   const addedCommentVal = [...commentVal];
   const [classOfBtn, setClassOfBtn] = useState('');
   const [currInputVal, setCurrInputVal] = useState('');
@@ -32,15 +32,16 @@ export default function Feeds({ userId, profileImg, img }) {
     setClassOfBtn('');
   };
 
-  useEffect(() => {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    }).then(res =>
-      res.json().then(data => {
-        setCommentVal(data);
-      })
-    );
-  }, []);
+  // commentData.json
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/data/commentData.json', {
+  //     method: 'GET',
+  //   }).then(res =>
+  //     res.json().then(data => {
+  //       setCommentVal(data);
+  //     })
+  //   );
+  // }, []);
 
   return (
     <div className="feeds">
