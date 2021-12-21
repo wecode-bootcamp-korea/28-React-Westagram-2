@@ -2,16 +2,20 @@
   {
     "id": 1,
     "userId": "wecode1",
-    "img": "images/hyeonze/fig.jpg"
+    "profileImg": "images/hyeonze/profile1.jpg",
+    "img": "images/hyeonze/img1.jpg",
+    "comment": []
   },
   {
     "id": 2,
     "userId": "wecode2",
-    "img": "images/hyeonze/fig.jpg"
+    "profileImg": "images/hyeonze/profile2.jpg",
+    "img": "images/hyeonze/img2.jpg"
   },
   {
     "id": 3,
     "userId": "wecode3",
-    "img": "images/hyeonze/fig.jpg"
+    "profileImg": "images/hyeonze/profile3.jpg",
+    "img": "images/hyeonze/img3.jpg"
   }
 ]

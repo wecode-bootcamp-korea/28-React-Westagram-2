@@ -5,7 +5,7 @@ import { GrBookmark } from 'react-icons/gr';
 import './Feeds.scss';
 import Comment from './Comment/Comment';
 
-export default function Feeds({ userId, img }) {
+export default function Feeds({ userId, profileImg, img }) {
   const [commentVal, setCommentVal] = useState([]);
   const addedCommentVal = [...commentVal];
   const [classOfBtn, setClassOfBtn] = useState('');
@@ -47,7 +47,7 @@ export default function Feeds({ userId, img }) {
       <article>
         <div className="top_menu">
           <span>
-            <img src="images/hyeonze/profile.jpg" alt="프로필" />
+            <img src={profileImg} alt="프로필" />
             {userId}
           </span>
           <span>
