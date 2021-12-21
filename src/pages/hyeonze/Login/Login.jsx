@@ -20,11 +20,15 @@ const Login = () => {
   const [isValidatedPw, setIsValidatedPw] = useState(false);
 
   const changeIdInput = e => {
-    setIdInput(e.target.value);
+    // setIdInput(e.target.value); // 비구조화 할당 적용
+    const { value } = e.target;
+    setIdInput(value);
   };
 
   const changePwInput = e => {
-    setPwInput(e.target.value);
+    // setPwInput(e.target.value); // 비구조화 할당 적용
+    const { value } = e.target;
+    setPwInput(value);
   };
 
   useEffect(() => {
