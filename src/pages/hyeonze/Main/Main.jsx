@@ -18,13 +18,7 @@ const Main = () => {
   return (
     <div className="main">
       {feedVal.map((el, i) => {
-        return (
-          <Feeds
-            key={feedVal[i].id}
-            userId={feedVal[i].userId}
-            img={feedVal[i].img}
-          />
-        );
+        return <Feeds key={el.id} userId={el.userId} img={el.img} />;
       })}
       <MainRight />
     </div>
