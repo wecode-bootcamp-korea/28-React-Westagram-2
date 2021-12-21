@@ -5,9 +5,8 @@ import {
 } from 'react-icons/bs';
 import './Story.scss';
 
-const Story = () => {
+const Story = ({ stories, setIsModalOpen, setModalIdx }) => {
   const [currIdx, setCurrIdx] = useState(0);
-  // const storyRef = useRef(null); TODO: resize될 때 크기 조정이 필요한지 판단필요
   const carouselRef = useRef(null);
 
   const handleLeftSlide = () => {
@@ -22,6 +21,12 @@ const Story = () => {
     else setCurrIdx(prevIdx => prevIdx + 3);
   };
 
+  const handleModalOpen = e => {
+    const closestLi = e.target.closest('li');
+    setIsModalOpen(true);
+    setModalIdx(parseInt(closestLi.dataset?.idx));
+  };
+
   useEffect(() => {
     let movedBy = currIdx * 56;
     if (currIdx === 3) movedBy += 16;
@@ -30,50 +35,13 @@ const Story = () => {
 
   return (
     <section className="stories">
-      <ul className="stories__box" ref={carouselRef}>
-        <li className="story">
-          <img src="images/joonyoung/stories/story1.jpg" alt="story profile " />
-          <p>Enna</p>
-        </li>
-        <li className="story">
-          <img src="images/joonyoung/stories/story2.jpg" alt="story profile " />
-          <p>Jesy</p>
-        </li>
-        <li className="story">
-          <img src="images/joonyoung/stories/story3.jpg" alt="story profile " />
-          <p>Denial</p>
-        </li>
-        <li className="story">
-          <img src="images/joonyoung/stories/story4.jpg" alt="story profile " />
-          <p>Meow</p>
-        </li>
-        <li className="story">
-          <img src="images/joonyoung/stories/story5.jpg" alt="story profile " />
-          <p>Christina</p>
-        </li>
-        <li className="story">
-          <img src="images/joonyoung/stories/story6.jpg" alt="story profile " />
-          <p>Mally</p>
-        </li>
-        <li className="story">
-          <img src="images/joonyoung/stories/story7.jpg" alt="story profile " />
-          <p>Karel</p>
-        </li>
-        <li className="story">
-          <img src="images/joonyoung/stories/story8.jpg" alt="story profile " />
-          <p>Bred</p>
-        </li>
-        <li className="story">
-          <img src="images/joonyoung/stories/story9.jpg" alt="story profile " />
-          <p>Andrew</p>
-        </li>
-        <li className="story">
-          <img
-            src="images/joonyoung/stories/story10.jpg"
-            alt="story profile "
-          />
-          <p>Emily</p>
-        </li>
+      <ul className="stories__box" ref={carouselRef} onClick={handleModalOpen}>
+        {stories.map((story, idx) => (
+          <li className="story" data-idx={idx + 1} key={story.username}>
+            <img src={story.imgUrl} alt={story.username} />
+            <p>{story.username}</p>
+          </li>
+        ))}
       </ul>
       <BsFillArrowLeftCircleFill
         className={`arrow left ${currIdx === 0 ? 'hidden' : ''}`}
@@ -89,4 +57,4 @@ const Story = () => {
   );
 };
 
-export default Story;
+export default React.memo(Story);

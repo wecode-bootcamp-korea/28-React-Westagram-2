@@ -20,6 +20,7 @@ const Login = () => {
   const handlePwd = e => {
     setPassword(e.target.value);
   };
+
   const goToMainByEnter = e => {
     if (e.key === 'Enter') goToMain();
   };
@@ -63,10 +64,7 @@ const Login = () => {
         <span>또는</span>
       </div>
 
-      <button
-        href="https://www.instagram.com/accounts/signup/"
-        className="fa-login"
-      >
+      <button className="fa-login">
         <img
           src="/images/joonyoung/facebook.png"
           alt="facebook"

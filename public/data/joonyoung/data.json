@@ -1,4 +1,19 @@
 {
+  "stories": [
+    { "imgUrl": "images/joonyoung/stories/story1.jpg", "username": "Enna" },
+    { "imgUrl": "images/joonyoung/stories/story2.jpg", "username": "Jesy" },
+    { "imgUrl": "images/joonyoung/stories/story3.jpg", "username": "Denial" },
+    { "imgUrl": "images/joonyoung/stories/story4.jpg", "username": "Meow" },
+    {
+      "imgUrl": "images/joonyoung/stories/story5.jpg",
+      "username": "Christina"
+    },
+    { "imgUrl": "images/joonyoung/stories/story6.jpg", "username": "Mally" },
+    { "imgUrl": "images/joonyoung/stories/story7.jpg", "username": "Karel" },
+    { "imgUrl": "images/joonyoung/stories/story8.jpg", "username": "Bred" },
+    { "imgUrl": "images/joonyoung/stories/story9.jpg", "username": "Andrew" },
+    { "imgUrl": "images/joonyoung/stories/story10.jpg", "username": "Emily" }
+  ],
   "feed": [
     {
       "id": 1,
