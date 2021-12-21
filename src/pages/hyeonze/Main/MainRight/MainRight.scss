@@ -18,14 +18,12 @@
   .stories {
     position: relative;
     @include mixin.flex($justify: space-between, $align: flex-start);
-    // display: flex;
     overflow: hidden;
     margin-top: 20px;
     width: 100%;
     height: 250px;
     border-radius: 5px;
     border: 1px solid clr.$clr-border;
-    // justify-content: space-between;
     background: #fff;
 
     img {
@@ -116,7 +114,6 @@
   .recommended {
     @include mixin.flex($justify: space-between, $align: flex-start);
     position: relative;
-    // display: flex;
     overflow: hidden;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -124,7 +121,6 @@
     height: 220px;
     border-radius: 5px;
     border: 1px solid clr.$clr-border;
-    // justify-content: space-between;
     background: #fff;
 
     ul {
@@ -135,11 +131,8 @@
       li {
         @include mixin.flex($justify: flex-start, $align: center);
         position: relative;
-        // display: flex;
         height: 60px;
         padding-left: 15px;
-        // justify-content: flex-start;
-        // align-items: center;
 
         div {
           position: relative;
