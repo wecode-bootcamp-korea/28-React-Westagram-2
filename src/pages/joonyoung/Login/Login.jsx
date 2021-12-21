@@ -9,8 +9,8 @@ const Login = () => {
   const [active, setActive] = useState(false);
 
   const validateInput = () => {
-    if (email.includes('@') && password.length >= 6) setActive(_ => true);
-    else setActive(_ => false);
+    if (email.includes('@') && password.length >= 5) setActive(true);
+    else setActive(false);
   };
 
   const handleEmail = e => {
@@ -18,7 +18,10 @@ const Login = () => {
   };
 
   const handlePwd = e => {
-    setPassword(_ => e.target.value);
+    setPassword(e.target.value);
+  };
+  const goToMainByEnter = e => {
+    if (e.key === 'Enter') goToMain();
   };
 
   const goToMain = () => {
@@ -39,12 +42,14 @@ const Login = () => {
           placeholder="전화번호, 사용자 이름 또는 이메일"
           data-type="email"
           onChange={handleEmail}
+          onKeyDown={goToMainByEnter}
         />
         <input
           type="password"
           placeholder="비밀번호"
           data-type="password"
           onChange={handlePwd}
+          onKeyDown={goToMainByEnter}
         />
         <button
           className={`login__formBtn ${active ? 'active' : ''}`}

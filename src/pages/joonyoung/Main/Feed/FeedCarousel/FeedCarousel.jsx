@@ -5,7 +5,7 @@ import {
 } from 'react-icons/bs';
 import './FeedCarousel.scss';
 
-const FeedCarousel = () => {
+const FeedCarousel = ({ carouselImages }) => {
   const [currIdx, setCurrIdx] = useState(0);
   const carouselRef = useRef(null);
 
@@ -38,55 +38,29 @@ const FeedCarousel = () => {
         />
         <BsFillArrowRightCircleFill
           size="24"
-          className={`arrow ${currIdx === 5 ? 'hidden' : ''}`}
+          className={`arrow ${
+            currIdx === carouselImages.length - 1 ? 'hidden' : ''
+          }`}
           onClick={handleSlideRight}
         />
 
-        <div className="img__container" ref={carouselRef}>
-          <img
-            src="./images/joonyoung/feed/feed1/pexels-fauxels-3184291.jpg"
-            alt="feed 1st team gathered"
-          />
-          <img
-            src="./images/joonyoung/feed/feed1/pexels-fauxels-3184302.jpg"
-            alt="feed 2nd man~"
-          />
-          <img
-            src="./images/joonyoung/feed/feed1/pexels-fauxels-3184433.jpg"
-            alt="feed 3rd gathering hands"
-          />
-          <img
-            src="./images/joonyoung/feed/feed1/pexels-min-an-853168.jpg"
-            alt="feed 4th sunset"
-          />
-          <img
-            src="./images/joonyoung/feed/feed1/pexels-this-is-zun-1116302.jpg"
-            alt="feed 5th make start"
-          />
-        </div>
+        <ul className="img__container" ref={carouselRef}>
+          {carouselImages?.map((carouselImg, idx) => (
+            <img src={carouselImg} alt="feed " key={idx} />
+          ))}
+        </ul>
       </article>
 
       <ul className="carousel__navigator" onClick={handleNavigateToIdx}>
-        <li
-          className={`slide_btn ${currIdx === 0 && 'current'}`}
-          data-idx="0"
-        />
-        <li
-          className={`slide_btn ${currIdx === 1 && 'current'}`}
-          data-idx="1"
-        />
-        <li
-          className={`slide_btn ${currIdx === 2 && 'current'}`}
-          data-idx="2"
-        />
-        <li
-          className={`slide_btn ${currIdx === 3 && 'current'}`}
-          data-idx="3"
-        />
-        <li
-          className={`slide_btn ${currIdx === 4 && 'current'}`}
-          data-idx="4"
-        />
+        {Array(carouselImages?.length)
+          .fill(0)
+          .map((_, idx) => (
+            <li
+              key={idx}
+              data-idx={idx}
+              className={`slide_btn ${currIdx === idx && 'current'}`}
+            />
+          ))}
       </ul>
     </section>
   );

@@ -2,20 +2,26 @@
 @use '../../../../../styles/mixin' as mixin;
 
 .feed__carousel {
-  // background-color: red;
   position: relative; // for arrows
   overflow: hidden;
+  --bg-loaded: none;
+
+  &::after {
+    // for image skeleton loading effect
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: darkgray var(--bg-skeleton) right / 150%;
+    animation: skeletonLoading 2s ease-out alternate 3,
+      imgLoaded 10ms 2.5s forwards;
+  }
 
   .img__container {
     @include mixin.flex($align: center);
     transition: all 0.5s ease-in;
 
     img {
-      display: block;
-      min-width: 100%;
-      max-width: 100%;
       height: 60vh;
-      object-fit: cover;
     }
   }
 

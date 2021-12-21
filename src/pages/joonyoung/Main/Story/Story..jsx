@@ -7,7 +7,7 @@ import './Story.scss';
 
 const Story = () => {
   const [currIdx, setCurrIdx] = useState(0);
-  const storyRef = useRef(null);
+  // const storyRef = useRef(null); TODO: resize될 때 크기 조정이 필요한지 판단필요
   const carouselRef = useRef(null);
 
   const handleLeftSlide = () => {
@@ -23,21 +23,13 @@ const Story = () => {
   };
 
   useEffect(() => {
-    carouselRef.current.style.transform = `translateX(-${currIdx * 56}px)`;
+    let movedBy = currIdx * 56;
+    if (currIdx === 3) movedBy += 16;
+    carouselRef.current.style.transform = `translateX(-${movedBy}px)`;
   }, [currIdx]);
 
   return (
-    <section className="stories" ref={storyRef}>
-      <BsFillArrowLeftCircleFill
-        className="arrow left"
-        size="18"
-        onClick={handleLeftSlide}
-      />
-      <BsFillArrowRightCircleFill
-        className="arrow right"
-        size="18"
-        onClick={handleRightSlide}
-      />
+    <section className="stories">
       <ul className="stories__box" ref={carouselRef}>
         <li className="story">
           <img src="images/joonyoung/stories/story1.jpg" alt="story profile " />
@@ -83,6 +75,16 @@ const Story = () => {
           <p>Emily</p>
         </li>
       </ul>
+      <BsFillArrowLeftCircleFill
+        className={`arrow left ${currIdx === 0 ? 'hidden' : ''}`}
+        size="18"
+        onClick={handleLeftSlide}
+      />
+      <BsFillArrowRightCircleFill
+        className={`arrow right ${currIdx === 3 ? 'hidden' : ''}`}
+        size="18"
+        onClick={handleRightSlide}
+      />
     </section>
   );
 };

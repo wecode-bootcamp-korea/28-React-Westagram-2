@@ -4,9 +4,8 @@ const Other = ({ profile }) => {
   const { id, username, description } = profile;
 
   return (
-    <section className="others__profile flex items-center">
-      {/* TODO: Skeleton image fix */}
-      <div className="skeleton">
+    <section className="others__profile">
+      <div className="img__skeleton">
         <img
           src={`/images/joonyoung/recommends/recommendation${id}.jpg`}
           alt="profile"

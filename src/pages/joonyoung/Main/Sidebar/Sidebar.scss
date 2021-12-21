@@ -1,91 +1,92 @@
+@use '../../../../styles/color' as color;
 @use '../../../../styles/mixin' as mixin;
 
 aside {
-  // background-color: aqua;
   grid-row: span 2;
   position: relative; //  for slidebar position fix
   font-family: 'Lobster', cursive;
-}
-.sidebar {
-  // background: red;
-  width: 15rem;
-  position: fixed;
+  --bg-loaded: none;
+  --img-size: 3rem;
 
-  & > header {
-    @include mixin.flex($justify: space-between, $align: center);
-    height: 7rem;
-    margin-bottom: 1rem;
+  .sidebar {
+    width: 16rem;
+    position: fixed;
 
-    img {
-      display: inline-block;
-      margin-right: 1em;
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 50%;
-    }
-
-    .profile p {
-      font-size: 0.875rem;
-      color: rgb(161, 161, 180);
-    }
-  }
-
-  .recommend {
-    header {
+    & > header {
       @include mixin.flex($justify: space-between, $align: center);
-      h3 {
+      height: 7rem;
+      margin-bottom: 0.625em;
+      --img-size: 3rem;
+
+      img {
         display: inline-block;
-        font-size: 1.125rem;
-        font-weight: bold;
+        border-radius: 50%;
+        position: relative;
+      }
+
+      .profile p {
+        font-size: 0.875rem;
         color: rgb(161, 161, 180);
       }
-      span {
-        color: inherit;
+    }
+
+    .recommend {
+      header {
+        @include mixin.flex($justify: space-between, $align: center);
+
+        h3 {
+          font-size: 1.125rem;
+          font-weight: bold;
+          color: rgb(161, 161, 180);
+        }
+
+        span {
+          color: inherit;
+        }
+      }
+
+      .others {
+        &__profile {
+          --img-size: 1.75rem;
+          padding: 0.5em;
+          padding-right: 0;
+          @include mixin.flex($align: center);
+
+          img {
+            width: var(--img-size);
+            height: var(--img-size);
+            border-radius: 50%;
+          }
+
+          &_description {
+            h4 {
+              font-size: 0.875rem;
+              font-weight: 500;
+            }
+
+            p {
+              font-size: 0.75rem;
+              font-family: sans-serif;
+              line-height: 1.7;
+              color: rgb(156, 163, 175);
+            }
+          }
+        }
       }
     }
 
-    .others {
-      &__profile {
-        padding: 1rem 0;
-        // background-color: gray;
-        @include mixin.flex($align: center);
+    span {
+      display: inline-block;
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: rgb(0, 153, 243);
+      opacity: 0.8;
+      font-family: sans-serif;
+      cursor: pointer;
 
-        img {
-          margin-right: 1rem;
-          width: 1.75rem;
-          height: 1.75rem;
-          border-radius: 50%;
-          & + & {
-            margin-top: 0.75rem;
-          }
-        }
-        &_description {
-          h4 {
-            font-size: 0.875rem;
-            font-weight: 500;
-          }
-          p {
-            font-size: 0.75rem;
-            font-family: sans-serif;
-            line-height: 1.7;
-            color: rgb(156, 163, 175);
-          }
-        }
+      &:hover {
+        opacity: 1;
       }
-    }
-  }
-
-  span {
-    display: inline-block;
-    margin-left: auto;
-    font-size: 0.8rem;
-    color: rgb(0, 153, 243);
-    opacity: 0.8;
-    font-family: sans-serif;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
     }
   }
 }

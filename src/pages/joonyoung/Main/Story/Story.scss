@@ -8,63 +8,29 @@
   overflow: hidden;
   position: relative; // for arrow position
 
-  // TODO: Z-INDEX : SKELETON > arrow > img > After skeleton
-  .arrow {
-    position: absolute;
-    top: 50%;
-    z-index: 1;
-    transform: translateY(-50%);
-    color: rgba(229, 231, 235, 0.7);
-    cursor: pointer;
-
-    &.left {
-      left: 2%;
-    }
-    &.right {
-      right: 2%;
-    }
-    &:hover {
-      opacity: 0.9;
-    }
-  }
-
   &__box {
     @include mixin.flex($align: center);
-    gap: 1em; // 32px
+    gap: 1em;
     transition: all 0.4s linear;
+    position: relative; // arrow가 앞에 나오는 문제 해결 위한 position
+    z-index: 10;
 
     .story {
-      --img-height: 3.5rem;
-      width: var(--img-height);
-      height: var(--img-height);
-      height: var(--img-height);
-      border-radius: 50%;
-      position: relative; // for p
+      --img-size: 3.5rem;
+      --mr: 0;
+      --inset: -5px;
 
-      // Z-index: skeleton > img > story:before(흰색) > story:after(그라데이션)
-
-      &::before,
-      &::after {
+      &::before {
         content: '';
         position: absolute;
         inset: -3px;
         background: #fff;
         border-radius: 50%;
       }
-      &::after {
-        inset: -5px;
-        z-index: -1;
-        background: color.$instaGradation;
-      }
 
       img {
-        width: var(--img-height);
-        height: var(--img-height);
-        display: block;
-        object-fit: cover;
         border-radius: 50%;
-        position: relative;
-        z-index: 10;
+        position: relative; // story의 pseudo요소 보다 앞에 오기 위한 position
       }
 
       p {
@@ -77,4 +43,49 @@
       }
     }
   }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(229, 231, 235, 0.7);
+    cursor: pointer;
+    animation: fadeInArrow 10ms 2.5s forwards;
+
+    &.left {
+      left: 2%;
+    }
+    &.right {
+      right: 2%;
+    }
+    &:hover {
+      opacity: 0.9;
+    }
+    &.hidden {
+      opacity: 0;
+    }
+  }
+
+  // @keyframes skeletonLoading {
+  //   from {
+  //     background-position: right;
+  //   }
+  //   to {
+  //     background-position: left;
+  //   }
+  // }
+
+  // @keyframes imgLoaded {
+  //   100% {
+  //     z-index: -1;
+  //     background: color.$instaGradation;
+  //     background-size: 100%;
+  //   }
+  // }
+
+  // @keyframes fadeInArrow {
+  //   to {
+  //     z-index: 10;
+  //   }
+  // }
 }

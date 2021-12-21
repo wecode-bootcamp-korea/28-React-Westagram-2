@@ -13,7 +13,9 @@ const Sidebar = () => {
     <aside>
       <section className="sidebar">
         <header>
-          <img src="/images/joonyoung/profile.jpg" alt="profile " />
+          <div className="img__skeleton">
+            <img src="/images/joonyoung/profile.jpg" alt="profile " />
+          </div>
           <article className="profile">
             <h3>Joonyg10</h3>
             <p>박준영</p>

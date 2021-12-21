@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { MdDelete } from 'react-icons/md';
 import { IoMdCloseCircle } from 'react-icons/io';
 import Heart from '../../Heart/Heart';
@@ -35,6 +35,10 @@ const Comment = ({ comment, setComments, setLikes }) => {
   };
 
   const stopDrag = e => {
+    // 너무 조금 움직인 경우에 대해 reset해준다.
+    if (movedX - startX < 30)
+      frontRef.current.style.transform = `translateX(0px)`;
+
     cancelAnimationFrame(animationID);
     setStartX(0);
     setMovedX(0);
@@ -48,7 +52,7 @@ const Comment = ({ comment, setComments, setLikes }) => {
   };
 
   const slideComment = () => {
-    // 움직인 거리가 100px이 넘어가면 안되며 50px만 넘게 움직여도 모두 보이도록 설정한다.
+    // 움직인 거리가 100px이 넘어가면 안되며 30px만 넘게 움직여도 모두 보이도록 설정한다.
     let movedBy = startX - movedX;
     if (movedBy > 30) movedBy = 100;
     frontRef.current.style.transform = `translateX(-${movedBy}px)`;
@@ -82,4 +86,4 @@ const Comment = ({ comment, setComments, setLikes }) => {
   );
 };
 
-export default Comment;
+export default React.memo(Comment);
