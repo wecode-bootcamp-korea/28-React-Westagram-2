@@ -1,78 +1,78 @@
 [
   {
     "id": 1,
-    "userId": "wecode1",
+    "userId": "repellat",
     "profileImg": "images/hyeonze/profile1.jpg",
     "img": "images/hyeonze/img1.jpg",
     "comment": [
       {
         "id": 1,
-        "userId": "1wecode",
-        "value": "1Welcome to world best coding bootcamp!",
+        "userId": "ipsum",
+        "value": "fugiat nulla pariatur.",
         "time": "30분전"
       },
       {
         "id": 2,
-        "userId": "1joonsikyang",
-        "value": "1Hi there.",
+        "userId": "Excepteur",
+        "value": "sint occaecat cupidatat non proident.",
         "time": "20분전"
       },
       {
         "id": 3,
-        "userId": "1jayPark",
-        "value": "1Hey.",
+        "userId": "sunt",
+        "value": "in culpa qui officia deserunt mollit anim id.",
         "time": "10분전"
       }
     ]
   },
   {
     "id": 2,
-    "userId": "wecode2",
+    "userId": "Lorem",
     "profileImg": "images/hyeonze/profile2.jpg",
     "img": "images/hyeonze/img2.jpg",
     "comment": [
       {
         "id": 1,
-        "userId": "2wecode",
-        "value": "2Welcome to world best coding bootcamp!",
+        "userId": "dolor",
+        "value": "sit amet, consectetur adipisicing elit",
         "time": "30분전"
       },
       {
         "id": 2,
-        "userId": "2joonsikyang",
-        "value": "2Hi there.",
+        "userId": "sed",
+        "value": "do eiusmod tempor.",
         "time": "20분전"
       },
       {
         "id": 3,
-        "userId": "2jayPark",
-        "value": "2Hey.",
+        "userId": "incididunt",
+        "value": "ut labore et dolore magna aliqua.",
         "time": "10분전"
       }
     ]
   },
   {
     "id": 3,
-    "userId": "wecode3",
+    "userId": "enim",
     "profileImg": "images/hyeonze/profile3.jpg",
     "img": "images/hyeonze/img3.jpg",
     "comment": [
       {
         "id": 1,
-        "userId": "3wecode",
-        "value": "3Welcome to world best coding bootcamp!",
+        "userId": "minim",
+        "value": "veniam, quis nostrud",
         "time": "30분전"
       },
       {
         "id": 2,
-        "userId": "3joonsikyang",
-        "value": "3Hi there.",
+        "userId": "exercitation",
+        "value": "ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "time": "20분전"
       },
       {
         "id": 3,
-        "userId": "3jayPark",
-        "value": "3Hey.",
+        "userId": "Duis",
+        "value": "aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.",
         "time": "10분전"
       }
     ]
