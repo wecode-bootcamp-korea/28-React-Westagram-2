@@ -17,10 +17,10 @@ const Comment = ({ commentVal }) => {
     <>
       {commentVal.map((el, i) => {
         return (
-          <span key={commentVal[i].id}>
-            <strong>{commentVal[i].userId} </strong>
-            {commentVal[i].value}
-            <small> {commentVal[i].time}</small>
+          <span key={el.id}>
+            <strong>{el.userId} </strong>
+            {el.value}
+            <small> {el.time}</small>
             <AiFillDelete className="delete" />
             <AiOutlineHeart className={classOfHeart} onClick={putLike} />
           </span>
