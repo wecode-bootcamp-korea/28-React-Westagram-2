@@ -35,10 +35,6 @@ const Comment = ({ comment, setComments, setLikes }) => {
   };
 
   const stopDrag = e => {
-    // 너무 조금 움직인 경우에 대해 reset해준다.
-    if (movedX - startX < 30)
-      frontRef.current.style.transform = `translateX(0px)`;
-
     cancelAnimationFrame(animationID);
     setStartX(0);
     setMovedX(0);

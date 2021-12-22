@@ -25,7 +25,9 @@ const FeedCarousel = ({ carouselImages }) => {
   };
 
   useEffect(() => {
-    carouselRef.current.style.transform = `translateX(-${currIdx * 560}px)`;
+    const width = carouselRef.current.getBoundingClientRect().width;
+    console.log(width);
+    carouselRef.current.style.transform = `translateX(-${currIdx * width}px)`;
   }, [currIdx]);
 
   return (

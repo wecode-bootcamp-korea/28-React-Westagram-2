@@ -52,6 +52,7 @@ const Login = () => {
           onChange={handlePwd}
           onKeyDown={goToMainByEnter}
         />
+
         <button
           className={`login__formBtn ${active ? 'active' : ''}`}
           onClick={goToMain}

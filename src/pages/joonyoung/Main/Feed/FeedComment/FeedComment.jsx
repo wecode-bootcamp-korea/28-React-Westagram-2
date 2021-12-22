@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Comment from './Comment/Comment';
 import { BiSmile } from 'react-icons/bi';
 import './FeedComment.scss';
@@ -61,8 +61,8 @@ const FeedComment = ({
           placeholder="댓글 달기..."
           rows="2"
           value={newComment}
-          onKeyDown={handleAddnewCommentByEnter}
           onInput={e => setNewComment(e.target.value)}
+          onKeyDown={handleAddnewCommentByEnter}
           ref={inputRef}
         />
         <button

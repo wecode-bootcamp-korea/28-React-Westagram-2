@@ -9,13 +9,13 @@ aside {
   --img-size: 3rem;
 
   .sidebar {
-    width: 16rem;
     position: fixed;
+    width: 16rem;
 
     & > header {
       @include mixin.flex($justify: space-between, $align: center);
-      height: 7rem;
       margin-bottom: 0.625em;
+      height: 7rem;
       --img-size: 3rem;
 
       img {
@@ -87,6 +87,10 @@ aside {
       &:hover {
         opacity: 1;
       }
+    }
+
+    @media screen and (max-width: 968px) {
+      opacity: 0;
     }
   }
 }
