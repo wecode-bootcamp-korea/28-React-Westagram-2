@@ -5,6 +5,7 @@ import './Comment.scss';
 const Comment = ({ commentVal }) => {
   const [classOfHeart, setClassOfHeart] = useState('hearts');
 
+  // 잘못된 좋아요
   const putLike = () => {
     if (classOfHeart === 'hearts') {
       setClassOfHeart(classOfHeart + ' red');
@@ -23,6 +24,7 @@ const Comment = ({ commentVal }) => {
             <small> {el.time}</small>
             <AiFillDelete className="delete" />
             <AiOutlineHeart className={classOfHeart} onClick={putLike} />
+            {/* <AiOutlineHeart className={classOfHeart} /> */}
           </span>
         );
       })}
