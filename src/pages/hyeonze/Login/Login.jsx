@@ -8,6 +8,7 @@ const Login = () => {
   // 링크
   const navigate = useNavigate();
 
+  // 메인으로 이동할 때 로직
   const goToMain = () => {
     navigate('/main-hyeonze');
   };
@@ -41,6 +42,42 @@ const Login = () => {
       : setActivateBtn(false);
   }, [idInput, pwInput, isValidatedId, isValidatedPw]);
 
+  // 회원가입시 사용할 로직
+  // const signup = () => {
+  //   fetch('http://10.58.4.22:8000/users/signup', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: idInput,
+  //       password: pwInput,
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       //console.log('결과: ', result.message)
+  //       if (result.message === 'EMAIL_ALREADY_EXISTS') {
+  //         console.log('Error : Duplicated');
+  //       }
+  //     });
+  // };
+
+  // 로그인시 사용할 로직
+  // const login = () => {
+  //   fetch('http://10.58.4.22:8000/users/login', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: idInput,
+  //       password: pwInput,
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       //console.log('결과: ', result.message)
+  //       if (result.message === 'SUCCESS') {
+  //         console.log('login SUCCESS');
+  //       }
+  //     });
+  // };
+
   return (
     <div className="login">
       <div id="wrapper">
@@ -65,6 +102,8 @@ const Login = () => {
             type="button"
             value="로그인"
             onClick={goToMain}
+            // onClick={signup}
+            // onClick={login}
           />
         </form>
         <p>비밀번호를 잊으셨나요?</p>
