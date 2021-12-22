@@ -1,34 +1,25 @@
 import React, { useState } from 'react';
-import { AiFillDelete, AiOutlineHeart } from 'react-icons/ai';
-import './Comment.scss';
+import { AiFillDelete, AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
-const Comment = ({ commentVal }) => {
-  const [classOfHeart, setClassOfHeart] = useState('hearts');
+const Comment = ({ userId, value, time }) => {
+  const [isLiked, setIsLiked] = useState(false);
 
-  // 잘못된 좋아요
-  const putLike = () => {
-    if (classOfHeart === 'hearts') {
-      setClassOfHeart(classOfHeart + ' red');
-    } else if (classOfHeart === 'hearts red') {
-      setClassOfHeart('hearts');
-    }
+  const toggleLike = () => {
+    setIsLiked(!isLiked);
   };
 
   return (
-    <>
-      {commentVal.map(el => {
-        return (
-          <span key={el.id}>
-            <strong>{el.userId} </strong>
-            {el.value}
-            <small> {el.time}</small>
-            <AiFillDelete className="delete" />
-            <AiOutlineHeart className={classOfHeart} onClick={putLike} />
-            {/* <AiOutlineHeart className={classOfHeart} /> */}
-          </span>
-        );
-      })}
-    </>
+    <span>
+      <strong>{userId} </strong>
+      {value}
+      <small> {time}</small>
+      <AiFillDelete className="delete" />
+      {isLiked ? (
+        <AiFillHeart onClick={toggleLike} className="hearts red" />
+      ) : (
+        <AiOutlineHeart onClick={toggleLike} className="hearts" />
+      )}
+    </span>
   );
 };
 

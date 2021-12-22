@@ -3,7 +3,7 @@ import { AiFillHeart, AiOutlineComment, AiOutlineUpload } from 'react-icons/ai';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { GrBookmark } from 'react-icons/gr';
 import './Feeds.scss';
-import Comment from './Comment/Comment';
+import Comments from './Comment/Comments';
 
 export default function Feeds({ userId, profileImg, img, comments }) {
   const [commentVal, setCommentVal] = useState(comments);
@@ -61,7 +61,7 @@ export default function Feeds({ userId, profileImg, img, comments }) {
         </div>
         <div className="comments">
           <span>4 Likes</span>
-          <Comment commentVal={commentVal} />
+          <Comments commentArr={commentVal} />
         </div>
         <form className="add_comments">
           <input

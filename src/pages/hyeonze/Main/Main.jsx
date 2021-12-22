@@ -20,7 +20,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      {feedVal.map((el, i) => {
+      {feedVal.map(el => {
         return (
           <Feeds
             key={el.id}
