@@ -11,11 +11,6 @@ function LoginDaeyeong() {
   };
 
   const [idValue, saveIdData] = useState('');
-  // console.log(idValue);
-
-  //1. idValue에 @가 포함되어 있는가? 를 확인하는 코드
-  //2. pwValue가 5글자 이상인지? 를 확인하는 코드
-  //삼항 연산자를 이용해서 1번과 2번 조건이 맞으면 버튼 색상이 변하게 하는 코드
 
   function handleIdInput(event) {
     saveIdData(event.target.value);
@@ -34,11 +29,9 @@ function LoginDaeyeong() {
 
   function btnStatusChange(event) {
     btnColorChange(
-      idValue.includes('@') && pwValue.length > 4 ? 'blue' : '#c0dffd'
+      idValue.includes('@') && pwValue.length >= 5 ? 'blue' : '#c0dffd'
     );
   }
-
-  console.log(btnColorActive);
 
   return (
     <main className="login_main">

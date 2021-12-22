@@ -1,15 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
 import '../../../styles/common.scss';
-// import instagram from '../../../../public/images/daeyeong/images/instagram.png';
-// import daeyeong from '../../../../public/images/daeyeong/images/dae-yeong.png';
-// import sprint from '../../../../public/images/daeyeong/images/sprint.jpg';
-// import wecode from '../../../../public/images/daeyeong/images/wecode.png';
-// import sun from '../../../../public/images/daeyeong/images/sun.jpeg';
-// import piece from '../../../../public/images/daeyeong/images/piece.jpeg';
-// import champ from '../../../../public/images/daeyeong/images/champ.jpeg';
 
 function MainDaeyeong() {
+  //input에 입력한 값이 commentValue여기에 저장됨
+  const [commentValue, updateComment] = useState('');
+  // const [commentValue, setCommentValue] = useState('');
+
+  //[{ name: '', comment: '' }]을 초기값으로 하는 형태를 listComments 저장한다.(state)
+  const [listComments, setListComments] = useState([{ name: '', comment: '' }]);
+
+  //input에서 값의 변화가 일어나면 아래의 함수를 실행한다. event 값을 감지하고 그것을 updateComment에 보낸다.
+  function handleCommentInput(event) {
+    updateComment(event.target.value);
+  }
+
+  // Comment (name, commentValue) 형태
+  // {name: '값', commentValue: '값' }
+  const Comment = props => {
+    // console.log(props);
+    return (
+      <div className="comment">
+        <span>{props.name}</span>
+        <span> {props.comment}</span>
+        {/* <span>42분</span> */}
+        {/* <span>더 보기</span> */}
+      </div>
+    );
+  };
+
+  //uploadComment함수는 실행되면
+  //listComments를 spread 전개구문 복사해서 newlistComments에 담는다. 왜냐하면 state를 직접적으로 수정해서는 안되기 떄문
+  //newlistComments에 { name: 'testID', comment: commentValue(input에 담긴 값) } push 해준다.
+  //값이 최종 변경된 newlistComments를 listComments에 넣어서 state가 간접적으로 변경되게 한다.
+
+  //이벤트처리는 한 태그에 한번만사용 가능 그러므로 이 안에서 다 처리해야 함
+  function uploadComment() {
+    let newlistComments = [...listComments];
+    newlistComments.push({ name: 'testID', comment: commentValue });
+    setListComments(newlistComments);
+    console.log(`uploadComment ${newlistComments}, ${listComments}`);
+    updateComment('');
+  }
+
+  console.log('render');
   return (
     <>
       <link
@@ -65,22 +99,45 @@ function MainDaeyeong() {
                   <span> 오늘도 런닝을 하였다...</span>
                   <span>더 보기</span>
                 </div>
-
                 <div className="comment">
                   <span>우리는미생이다</span>
                   <span> 우리는 반드시 해낼 것이다!</span>
                 </div>
                 <div className="time_comment">42분 전</div>
+                {/* 변경된 값이 담긴 listComments에 map을 해준다.(배열 내의 모든 요소 가각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열로 반환) */}
+                {/* listComment는 내가 지정한 인자이다. 이 인자는 배열 내의 { name: '', comment: '' }이다. */}
+                {/* Comment component를 써서 부른다. 단, name key의 값은 listComment.name이고 comment의 key값은 listComment.comment이다. */}
+                <div>
+                  {listComments.map(listComment => (
+                    <Comment
+                      name={listComment.name}
+                      comment={listComment.comment}
+                    />
+                  ))}
+                </div>
+                {/*  listComment = {name, commentValue} */}
               </div>
             </div>
 
             <div className="westa_user_comment">
+              {/* input에서 변화가 일어나면  handleCommentInput 실행한다. */}
+
+              {/* <input> 태그의 value 속성은 <input> 요소의 초깃값(value)을 명시합니다. */}
+              {/* value로 input 태그의 초기값으로 commentValue를 준다. 그리고 input에 담긴 값을 처리한 후에, 
+              다시 value에 commentValue에 ''을 줌으로서 
+              input 태그를 초기화 한다.(uploadComment) */}
               <input
+                onChange={handleCommentInput}
                 className="input_comment"
                 type="text"
+                value={commentValue}
                 placeholder="댓글 달기..."
               />
-              <button className="comment_btn">게시</button>
+
+              {/* 버튼을 클릭하면 uploadComment 함수를 실행 */}
+              <button className="comment_btn" onClick={uploadComment}>
+                게시
+              </button>
             </div>
           </article>
         </div>
