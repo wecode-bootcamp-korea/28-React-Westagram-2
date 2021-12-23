@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AiFillDelete, AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
-const Comment = ({ userId, value, time }) => {
+const Comment = ({ id, userId, value, time, handleDelete }) => {
   const [isLiked, setIsLiked] = useState(false);
 
   const toggleLike = () => {
@@ -9,11 +9,11 @@ const Comment = ({ userId, value, time }) => {
   };
 
   return (
-    <span>
+    <span id={id}>
       <strong>{userId} </strong>
       {value}
       <small> {time}</small>
-      <AiFillDelete className="delete" />
+      <AiFillDelete onClick={handleDelete} className="delete" />
       {isLiked ? (
         <AiFillHeart onClick={toggleLike} className="hearts red" />
       ) : (

@@ -32,6 +32,12 @@ export default function Feeds({ userId, profileImg, img, comments }) {
     setClassOfBtn('');
   };
 
+  const handleDelete = e => {
+    const { id } = e.target.parentNode.parentNode;
+    addedCommentVal.splice(id - 1, 1);
+    setCommentVal(addedCommentVal);
+  };
+
   return (
     <div className="feeds">
       <article>
@@ -61,7 +67,7 @@ export default function Feeds({ userId, profileImg, img, comments }) {
         </div>
         <div className="comments">
           <span>4 Likes</span>
-          <Comments commentArr={commentVal} />
+          <Comments commentArr={commentVal} handleDelete={handleDelete} />
         </div>
         <form className="add_comments">
           <input

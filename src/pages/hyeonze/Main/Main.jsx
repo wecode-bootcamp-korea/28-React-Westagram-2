@@ -5,7 +5,6 @@ import './Main.scss';
 
 const Main = () => {
   const [feedVal, setfeedVal] = useState([]);
-  const currInitialComment = [];
 
   useEffect(() => {
     fetch('http://localhost:3000/data/feedData.json', {
@@ -13,7 +12,6 @@ const Main = () => {
     }).then(res =>
       res.json().then(data => {
         setfeedVal(data);
-        for (let i in data) currInitialComment.push(data[i].comment);
       })
     );
   });
