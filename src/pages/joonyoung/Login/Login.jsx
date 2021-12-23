@@ -79,7 +79,8 @@ const Login = () => {
         target="_blank"
         rel="noreferrer"
       >
-        비밀번호를 잊으셨나요?
+        {/* 비밀번호를 잊으셨나요? */}
+        로그인
       </a>
     </section>
   );

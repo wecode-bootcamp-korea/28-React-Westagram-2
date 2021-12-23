@@ -19,10 +19,10 @@ const Modal = ({ profileImg, username, setIsModalOpen }) => {
         Welcome to wecode
         <br />
         <span>{username}</span>
-        {Array(25)
+        {Array(50)
           .fill(0)
           .map((_, idx) => (
-            <div id="" className="heart_bubble" key={idx} />
+            <div className="heart_bubble" key={idx} />
           ))}
       </h1>
     </div>

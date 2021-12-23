@@ -2,15 +2,16 @@
 @use '../../../../../styles/mixin' as mixin;
 
 .feed__carousel {
-  position: relative; // for arrows
   overflow: hidden;
   --bg-loaded: none;
+  position: relative; // for arrows
 
   &::after {
     // for image skeleton loading effect
     content: '';
     position: absolute;
     inset: 0;
+    z-index: 100;
     background: darkgray var(--bg-skeleton) right / 150%;
     animation: skeletonLoading 2s ease-out alternate 3,
       imgLoaded 10ms 2.5s forwards;
