@@ -34,9 +34,7 @@ export default function Feeds({ userId, profileImg, img, comments }) {
 
   const handleDelete = e => {
     const { id } = e.target.parentNode.parentNode;
-    addedCommentVal = addedCommentVal.filter(el => {
-      return el.id !== Number(id);
-    });
+    addedCommentVal = addedCommentVal.filter(el => el.id !== Number(id));
     setCommentVal(addedCommentVal);
   };
 
