@@ -1,0 +1,44 @@
+@use '../../../../../../styles/mixin' as mixin;
+@use '../../../../../../styles/color' as color;
+
+.commentWrapper {
+  margin-top: 0;
+  width: 615px;
+  background-color: white;
+
+  .submittedComments {
+    padding: 0px 16px 5px 6px;
+  }
+  .commentInputWrapper {
+    padding: 6px 16px 6px 6px;
+    border-top: 1px solid color.$clr-border;
+    display: flex;
+    justify-content: space-between;
+
+    .commentInputText {
+      width: 518px;
+      height: 40px;
+      border: none;
+
+      &::placeholder {
+        color: #8e8e8e;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .validatedBtn {
+      color: color.$clr-primary;
+      border: none;
+      background-color: white;
+    }
+    .unvalidatedBtn {
+      color: color.$clr-primary;
+      border: none;
+      background-color: white;
+      opacity: 0.4;
+    }
+  }
+}

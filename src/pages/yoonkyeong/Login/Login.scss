@@ -1,0 +1,76 @@
+@use '../../../styles/mixin' as mixin;
+@use '../../../styles/color' as color;
+
+body {
+  background-color: color.$bg-login;
+}
+
+.login {
+  @include mixin.flex($justify: center, $align: center);
+  text-align: center;
+  flex-flow: column wrap;
+  width: 350px;
+  height: 380px;
+  border: 1px solid color.$clr-border;
+  margin-top: -150px;
+  background-color: #ffffff;
+
+  .logoWrapper {
+    h1 {
+      font-family: 'Lobster';
+    }
+  }
+
+  .loginWrapper {
+    padding: 40px;
+
+    input {
+      width: 258px;
+      height: 36px;
+      padding: 9px 0px 7px 8px;
+      border: 1px solid color.$clr-border;
+      border-radius: 3px;
+      margin: 3px;
+      background-color: color.$bg-login;
+
+      &:focus {
+        outline: 1px solid grey;
+      }
+
+      &::placeholder {
+        color: #979797;
+      }
+    }
+
+    .unvalidBtn {
+      width: 258px;
+      height: 35px;
+      padding: 0px;
+      border: 0px;
+      border-radius: 5px;
+      margin: 10px 3px 10px 3px;
+      background-color: color.$clr-primary;
+      opacity: 0.4;
+      color: #f6faff;
+      font-weight: bold;
+    }
+
+    .validBtn {
+      width: 258px;
+      height: 35px;
+      padding: 0px;
+      border: 0px;
+      border-radius: 5px;
+      margin: 10px 3px 10px 3px;
+      background-color: color.$clr-primary;
+      color: #f6faff;
+      font-weight: bold;
+    }
+
+    .forgetPassword {
+      padding-top: 30px;
+      font-size: 12px;
+      color: #174574;
+    }
+  }
+}

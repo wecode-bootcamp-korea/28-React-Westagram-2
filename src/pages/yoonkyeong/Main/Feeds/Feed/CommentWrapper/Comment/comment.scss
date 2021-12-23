@@ -1,0 +1,22 @@
+@use '../../../../../../../styles/mixin' as mixin;
+@use '../../../../../../../styles/color' as color;
+
+li {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .userName {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .deleteComment {
+    position: absolute;
+    right: 20px;
+  }
+  .likeThisComment {
+    position: absolute;
+    right: 5px;
+  }
+}

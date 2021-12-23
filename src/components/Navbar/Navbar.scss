@@ -5,6 +5,7 @@
   min-height: 3rem;
   --padding: 15vw;
   padding: 0 var(--padding);
+  background-color: white;
 
   display: flex;
   justify-content: space-between;
@@ -35,7 +36,6 @@
       top: 5px;
     }
   }
-
   .search {
     position: relative;
     input {

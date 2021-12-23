@@ -1,0 +1,136 @@
+@use '../../../../styles/mixin' as mixin;
+@use '../../../../styles/color' as color;
+
+aside {
+  .userInformation {
+    display: flex;
+    margin: 0px 0px 10px 0px;
+
+    .userImage {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .userText {
+      padding: 5px 0px 5px 23px;
+
+      .userId {
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .userNickname {
+        color: #b4b4b4;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .story {
+    width: 293px;
+    height: 240px;
+    border: 1px solid color.$clr-border;
+    background-color: white;
+    border-radius: 2px;
+    overflow: hidden;
+
+    .storyHeader {
+      display: flex;
+      justify-content: space-between;
+
+      .storyTitle,
+      .allStory {
+        margin: 17px 15px;
+        font-size: small;
+      }
+      .storyTitle {
+        color: #b4b4b4;
+      }
+    }
+
+    .storyUserList {
+      padding: 0;
+      margin-left: 17px;
+
+      .userInformation {
+        margin: 2px;
+
+        .userImage {
+          width: 44px;
+          height: 44px;
+          @include mixin.flex($justify: center, $align: center);
+          background: color.$instaGradation;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+          }
+        }
+      }
+    }
+  }
+
+  .recommendation {
+    width: 293px;
+    border: 1px solid color.$clr-border;
+    background-color: white;
+    border-radius: 2px;
+    margin-top: 30px;
+
+    .recommendationHeader {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+
+      .recommendationForYou,
+      .allRecommendation {
+        margin: 17px 15px;
+        font-size: small;
+      }
+    }
+
+    .recommendationForYou {
+      color: #b4b4b4;
+    }
+
+    .recommendedPeople {
+      margin-left: 10px;
+
+      .userInformation {
+        display: flex;
+        margin: 2px;
+        position: relative;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        .userImage {
+          width: 44px;
+          height: 44px;
+        }
+        .follow {
+          position: absolute;
+          right: 5px;
+          font-size: 14px;
+          color: color.$clr-primary;
+        }
+      }
+    }
+  }
+
+  .footer {
+    width: 290px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 8px;
+    color: lightgrey;
+  }
+}

@@ -1,0 +1,8 @@
+@use '../../../../styles/mixin' as mixin;
+@use '../../../../styles/color' as color;
+
+.Feeds {
+  display: flex;
+  flex-flow: column wrap;
+  margin-right: 30px;
+}
