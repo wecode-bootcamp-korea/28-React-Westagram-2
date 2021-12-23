@@ -7,7 +7,7 @@ export default function Comments({ commentArr, handleDelete }) {
     return (
       <Comment
         key={el.id}
-        id={i + 1}
+        id={el.id}
         userId={el.userId}
         value={el.value}
         time={el.time}

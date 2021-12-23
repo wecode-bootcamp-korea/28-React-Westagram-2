@@ -7,7 +7,7 @@ import Comments from './Comment/Comments';
 
 export default function Feeds({ userId, profileImg, img, comments }) {
   const [commentVal, setCommentVal] = useState(comments);
-  const addedCommentVal = [...commentVal];
+  let addedCommentVal = [...commentVal];
   const [classOfBtn, setClassOfBtn] = useState('');
   const [currInputVal, setCurrInputVal] = useState('');
 
@@ -34,7 +34,9 @@ export default function Feeds({ userId, profileImg, img, comments }) {
 
   const handleDelete = e => {
     const { id } = e.target.parentNode.parentNode;
-    addedCommentVal.splice(id - 1, 1);
+    addedCommentVal = addedCommentVal.filter(el => {
+      return el.id !== Number(id);
+    });
     setCommentVal(addedCommentVal);
   };
 
