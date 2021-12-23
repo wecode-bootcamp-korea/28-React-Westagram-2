@@ -1,11 +1,11 @@
 import React from 'react';
-import '../component/comment.scss';
+import './comment.scss';
 import { BiX, BiHeart } from 'react-icons/bi';
 
-export default function Comment({ name, comment }) {
+export default function Comment({ userName, comment }) {
   return (
     <li>
-      <span className="userName">{name} </span>
+      <span className="userName">{userName} </span>
       <span className="comment">{comment}</span>
       <BiX className="deleteComment" />
       <BiHeart className="likeThisComment" />
@@ -13,5 +13,5 @@ export default function Comment({ name, comment }) {
   );
 }
 Comment.defaultProps = {
-  name: 'Dummie',
+  userName: 'Dummie',
 };

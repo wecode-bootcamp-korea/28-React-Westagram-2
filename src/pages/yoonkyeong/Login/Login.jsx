@@ -7,13 +7,31 @@ export default function LoginYoonkyeong() {
   const goToMain = () => {
     navigate('/main-yoonkyeong');
   };
-  const onKeyPress = e => {
-    if (e.key === 'Enter') {
-      goToMain();
-    }
-  };
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
+
+  // const signup = () => {
+  //   fetch('http://10.58.5.56:8080/users/signin', {
+  //     method: 'post',
+  //     body: JSON.stringify({
+  //       email: id,
+  //       password: password,
+  //       username: 'JUN',
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(result => {
+  //       if (result.message === 'SUCCESS') {
+  //         console.log(result.token);
+  //         alert('성공');
+  //       }
+  //     });
+  // }; 로그인시 토큰 확인용
+
+  const onKeyPress = e => {
+    if (e.key === 'Enter') goToMain();
+  };
+
   const handleIdInput = e => {
     setId(e.target.value);
   };
@@ -23,6 +41,13 @@ export default function LoginYoonkyeong() {
   const checkCondition = () => {
     return (id.includes('@') && password.length) >= 5 ? true : false;
   };
+
+  // useEffect(() => {
+  //   window.addEventListener("");
+  //   return () => window.removeEventListener()
+  // }, [])
+  //창에 접근해서 이벤트를 거는 방법;
+
   return (
     <div className="login">
       <div className="logoWrapper">
