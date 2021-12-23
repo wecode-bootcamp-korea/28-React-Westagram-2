@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './Main.scss';
 import '../../../styles/common.scss';
+import Comment from './Comment';
 
 function MainDaeyeong() {
-  //input에 입력한 값이 commentValue여기에 저장됨
+  //input에 입력한 값이 updateComment로 전달이 되어지면서 commentValue여기(state)에 저장됨
   const [commentValue, updateComment] = useState('');
-  // const [commentValue, setCommentValue] = useState('');
+  // const [commentValue, setCommentValue] = useState(''); 같은 형식으로 변수나 함수 이름을 쓰는 것이 좋다. -준영님 조언
 
   //[{ name: '', comment: '' }]을 초기값으로 하는 형태를 listComments 저장한다.(state)
   const [listComments, setListComments] = useState([{ name: '', comment: '' }]);
@@ -17,17 +18,6 @@ function MainDaeyeong() {
 
   // Comment (name, commentValue) 형태
   // {name: '값', commentValue: '값' }
-  const Comment = props => {
-    // console.log(props);
-    return (
-      <div className="comment">
-        <span>{props.name}</span>
-        <span> {props.comment}</span>
-        {/* <span>42분</span> */}
-        {/* <span>더 보기</span> */}
-      </div>
-    );
-  };
 
   //uploadComment함수는 실행되면
   //listComments를 spread 전개구문 복사해서 newlistComments에 담는다. 왜냐하면 state를 직접적으로 수정해서는 안되기 떄문
@@ -39,11 +29,11 @@ function MainDaeyeong() {
     let newlistComments = [...listComments];
     newlistComments.push({ name: 'testID', comment: commentValue });
     setListComments(newlistComments);
-    console.log(`uploadComment ${newlistComments}, ${listComments}`);
+    //console.log(`uploadComment ${newlistComments}, ${listComments}`);
     updateComment('');
   }
 
-  console.log('render');
+  // console.log('render');
   return (
     <>
       <link
@@ -108,11 +98,8 @@ function MainDaeyeong() {
                 {/* listComment는 내가 지정한 인자이다. 이 인자는 배열 내의 { name: '', comment: '' }이다. */}
                 {/* Comment component를 써서 부른다. 단, name key의 값은 listComment.name이고 comment의 key값은 listComment.comment이다. */}
                 <div>
-                  {listComments.map(listComment => (
-                    <Comment
-                      name={listComment.name}
-                      comment={listComment.comment}
-                    />
+                  {listComments.map(el => (
+                    <Comment name={el.name} comment={el.comment} />
                   ))}
                 </div>
                 {/*  listComment = {name, commentValue} */}

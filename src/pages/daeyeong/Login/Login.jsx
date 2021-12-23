@@ -11,7 +11,6 @@ function LoginDaeyeong() {
   };
 
   const [idValue, saveIdData] = useState('');
-
   function handleIdInput(event) {
     saveIdData(event.target.value);
     // console.log(event.target.value);
@@ -32,6 +31,18 @@ function LoginDaeyeong() {
       idValue.includes('@') && pwValue.length >= 5 ? 'blue' : '#c0dffd'
     );
   }
+
+  const signIn = () => {
+    fetch('http://10.58.5.84:8000/users/register', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: idValue,
+        password: pwValue,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log('결과: ', result));
+  };
 
   return (
     <main className="login_main">
@@ -55,7 +66,7 @@ function LoginDaeyeong() {
           <div>
             <button
               style={{ backgroundColor: btnColorActive }}
-              onClick={goToMain}
+              onClick={signIn}
               className="login_btn"
             >
               로그인
