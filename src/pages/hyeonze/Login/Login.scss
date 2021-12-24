@@ -38,11 +38,11 @@ body {
 
         input[type='button'] {
           display: flex;
+          align-items: center;
+          justify-content: center;
           width: 536px;
           height: 60px;
           margin-top: 16px;
-          align-items: center;
-          justify-content: center;
           background-color: clr.$clr-primary;
           opacity: 0.5;
           border: none;

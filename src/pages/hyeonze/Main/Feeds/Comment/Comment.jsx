@@ -9,7 +9,7 @@ const Comment = ({ id, userId, value, time, handleDelete }) => {
   };
 
   return (
-    <span id={id}>
+    <span id={id} className="comment">
       <strong>{userId} </strong>
       {value}
       <small> {time}</small>
