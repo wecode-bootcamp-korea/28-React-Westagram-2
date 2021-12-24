@@ -4,21 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
-  // 사용자 데이터 저장 && 버튼활성화
   const [idInput, setIdInput] = useState('');
   const [pwInput, setPwInput] = useState('');
-  const [activateBtn, setActivateBtn] = useState(false);
-  const [isValidatedId, setIsValidatedId] = useState(false);
-  const [isValidatedPw, setIsValidatedPw] = useState(false);
+  const [isValidatedUser, setIsValidatedUser] = useState(false);
 
-  // 링크
   const navigate = useNavigate();
-
-  // 메인으로 이동할 때 로직
-  const goToMain = () => {
-    navigate('/main-hyeonze');
-  };
-
   const changeIdInput = e => {
     const { value } = e.target;
     setIdInput(value);
@@ -30,14 +20,15 @@ const Login = () => {
   };
 
   useEffect(() => {
-    idInput.indexOf('@') !== -1
-      ? setIsValidatedId(true)
-      : setIsValidatedId(false);
-    pwInput.length > 4 ? setIsValidatedPw(true) : setIsValidatedPw(false);
-    isValidatedId && isValidatedPw
-      ? setActivateBtn(true)
-      : setActivateBtn(false);
-  }, [idInput, pwInput, isValidatedId, isValidatedPw]);
+    idInput.indexOf('@') !== -1 && pwInput.length > 4
+      ? setIsValidatedUser(true)
+      : setIsValidatedUser(false);
+  }, [idInput, pwInput, isValidatedUser]);
+
+  // 메인으로 이동할 때 로직
+  const goToMain = () => {
+    navigate('/main-hyeonze');
+  };
 
   // 회원가입시 사용할 로직
   // const signup = () => {
@@ -93,9 +84,8 @@ const Login = () => {
             onChange={changePwInput}
           />
           <input
-            // className={activateBtn ? 'blue' : ''}
-            className={activateBtn && 'blue'}
-            disabled={activateBtn ? false : true}
+            className={isValidatedUser && 'activated'}
+            disabled={!isValidatedUser}
             type="button"
             value="로그인"
             onClick={goToMain}
