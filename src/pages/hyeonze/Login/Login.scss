@@ -24,10 +24,11 @@ body {
       }
 
       .login_form {
-        display: flex;
-        flex-direction: column;
+        // display: flex;
+        // flex-direction: column;
 
         input {
+          display: block;
           width: 536px;
           height: 76px;
           margin-bottom: 12px;

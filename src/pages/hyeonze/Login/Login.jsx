@@ -82,7 +82,7 @@ const Login = () => {
             onChange={changePwInput}
           />
           <input
-            className={isValidatedUser && 'activated'}
+            className={isValidatedUser ? 'activated' : ''}
             disabled={!isValidatedUser}
             type="button"
             value="로그인"
