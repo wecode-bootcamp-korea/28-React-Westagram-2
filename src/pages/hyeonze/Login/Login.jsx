@@ -20,9 +20,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    idInput.indexOf('@') !== -1 && pwInput.length > 4
-      ? setIsValidatedUser(true)
-      : setIsValidatedUser(false);
+    setIsValidatedUser(idInput.indexOf('@') !== -1 && pwInput.length > 4);
   }, [idInput, pwInput]);
 
   // 메인으로 이동할 때 로직
