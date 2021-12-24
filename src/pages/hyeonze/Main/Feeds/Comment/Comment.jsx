@@ -15,7 +15,7 @@ const Comment = ({ id, userId, value, time, handleDelete }) => {
       <small> {time}</small>
       <AiFillDelete onClick={handleDelete} className="delete" />
       {isLiked ? (
-        <AiFillHeart onClick={toggleLike} className="hearts red" />
+        <AiFillHeart onClick={toggleLike} className="hearts liked" />
       ) : (
         <AiOutlineHeart onClick={toggleLike} className="hearts" />
       )}

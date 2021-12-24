@@ -10,39 +10,34 @@ span.comment {
     font-weight: bold;
   }
 
-  svg.delete {
-    display: none;
-    cursor: pointer;
-  }
+  svg {
+    &.delete {
+      display: none;
+      cursor: pointer;
+    }
 
-  &:hover svg.delete {
-    display: inline-block;
-  }
-
-  svg.hearts {
-    color: #a3a3a3;
-    position: absolute;
-    right: 20px;
-    transition: color 1s;
-    cursor: pointer;
-
-    path {
+    &.hearts {
       color: #a3a3a3;
+      position: absolute;
+      right: 20px;
+      transition: color 1s;
+      cursor: pointer;
+
+      path {
+        color: #a3a3a3;
+      }
+    }
+
+    &.liked {
+      path {
+        color: #f00;
+      }
     }
   }
 
-  svg.red {
-    path {
-      color: #f00;
+  &:hover svg {
+    &.delete {
+      display: inline-block;
     }
   }
-}
-svg.red {
-  color: #f00;
-}
-
-svg.fa-times-circle {
-  margin-left: 5px;
-  color: #a3a3a3;
-  cursor: pointer;
 }
