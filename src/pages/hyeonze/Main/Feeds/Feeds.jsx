@@ -8,12 +8,10 @@ import Comments from './Comment/Comments';
 export default function Feeds({ userId, profileImg, img, comments }) {
   const [commentVal, setCommentVal] = useState(comments);
   let addedCommentVal = [...commentVal];
-  const [classOfBtn, setClassOfBtn] = useState('');
   const [currInputVal, setCurrInputVal] = useState('');
 
   const handleInput = e => {
     const { value } = e.target;
-    value ? setClassOfBtn('blue') : setClassOfBtn('');
     if (e.keyCode === 13) uploadComment();
     setCurrInputVal(value);
   };
@@ -29,7 +27,6 @@ export default function Feeds({ userId, profileImg, img, comments }) {
     });
     setCommentVal(addedCommentVal);
     setCurrInputVal('');
-    setClassOfBtn('');
   };
 
   const handleDelete = e => {
@@ -77,7 +74,10 @@ export default function Feeds({ userId, profileImg, img, comments }) {
             onChange={handleInput}
             value={currInputVal}
           />
-          <button className={classOfBtn} onClick={uploadComment}>
+          <button
+            className={currInputVal ? 'activated' : ''}
+            onClick={uploadComment}
+          >
             게시
           </button>
         </form>
