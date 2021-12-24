@@ -1,0 +1,43 @@
+span.comment {
+  padding-left: 10px;
+
+  small {
+    color: #a3a3a3;
+  }
+
+  &:first-child {
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  svg {
+    &.delete {
+      display: none;
+      cursor: pointer;
+    }
+
+    &.hearts {
+      color: #a3a3a3;
+      position: absolute;
+      right: 20px;
+      transition: color 1s;
+      cursor: pointer;
+
+      path {
+        color: #a3a3a3;
+      }
+    }
+
+    &.liked {
+      path {
+        color: #f00;
+      }
+    }
+  }
+
+  &:hover svg {
+    &.delete {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@use '../../../../styles/mixin.scss' as mixin;
+@use '../../../../styles/color.scss' as clr;
+
+.feeds {
+  position: relative;
+  top: 77px;
+  width: 60%;
+  margin-bottom: 80px;
+  background: #fff;
+
+  .top_menu {
+    @include mixin.flex($justify: space-between, $align: center);
+    height: 82px;
+
+    span {
+      @include mixin.flex($align: center);
+      margin-left: 20px;
+      font-weight: bold;
+
+      &:last-child {
+        margin-right: 22px;
+        color: #2a2a2a;
+        font-size: 35px;
+      }
+
+      img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  article {
+    img {
+      width: 100%;
+      height: 818px;
+    }
+
+    .bottom_menu {
+      @include mixin.flex($align: center);
+      position: relative;
+      height: 62px;
+
+      span > svg {
+        margin: 0 10px;
+        font-size: 32px;
+        color: #414141;
+      }
+
+      span:last-child > svg {
+        position: absolute;
+        top: 15px;
+        right: 0;
+      }
+
+      span:first-child > svg > path {
+        color: #eb4b59;
+      }
+    }
+  }
+
+  .comments {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      padding-left: 10px;
+    }
+  }
+
+  .add_comments {
+    position: absolute;
+    @include mixin.flex($justify: space-between, $align: center);
+    bottom: -62px;
+    width: 100%;
+    height: 62px;
+    border-top: 1px solid clr.$clr-border;
+    font-size: 14px;
+
+    input {
+      width: 90%;
+      height: 50%;
+      margin-left: 15px;
+      border: none;
+    }
+
+    button {
+      margin-right: 15px;
+      border: none;
+      color: clr.$clr-primary;
+      opacity: 0.5;
+      background: #fff;
+
+      &.activated {
+        opacity: 1;
+      }
+    }
+  }
+}

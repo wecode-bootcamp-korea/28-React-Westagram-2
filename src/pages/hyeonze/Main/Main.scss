@@ -1,0 +1,36 @@
+@use '../../../styles/mixin.scss' as mixin;
+
+#root {
+  @include mixin.flex($justify: center, $align: flex-start);
+  width: 100vw;
+
+  .main {
+    z-index: 10;
+    position: relative;
+    margin-top: -100px;
+    width: 80%;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .main {
+      .nav_wrap {
+        nav {
+          .logo {
+            span {
+              display: none;
+            }
+          }
+          .logo:before {
+            display: none;
+          }
+        }
+      }
+      .feeds {
+        width: 100%;
+      }
+      .main-right {
+        display: none;
+      }
+    }
+  }
+}
