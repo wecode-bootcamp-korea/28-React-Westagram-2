@@ -14,6 +14,23 @@
     { "imgUrl": "images/joonyoung/stories/story9.jpg", "username": "Andrew" },
     { "imgUrl": "images/joonyoung/stories/story10.jpg", "username": "Emily" }
   ],
+  "otherProfileInfos": [
+    {
+      "id": 1,
+      "username": "wecode28기",
+      "description": "wecode님외 36명이 follow"
+    },
+    {
+      "id": 2,
+      "username": "Younha",
+      "description": "Enna Kim외 10명이 follow"
+    },
+    {
+      "id": 3,
+      "username": "wework",
+      "description": "wecode28님외 236명이 follow"
+    }
+  ],
   "feed": [
     {
       "id": 1,

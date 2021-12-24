@@ -8,7 +8,7 @@ aside {
   --bg-loaded: none;
   --img-size: 3rem;
 
-  .sidebar {
+  .joonyoung__sidebar {
     position: fixed;
     width: 16rem;
 
@@ -87,10 +87,6 @@ aside {
       &:hover {
         opacity: 1;
       }
-    }
-
-    @media screen and (max-width: 968px) {
-      opacity: 0;
     }
   }
 }

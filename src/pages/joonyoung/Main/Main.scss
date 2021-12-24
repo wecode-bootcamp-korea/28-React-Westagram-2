@@ -1,6 +1,6 @@
 @use '../../../styles/color' as color;
 
-main {
+.joonyoung_main {
   --bg-skeleton: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0,
@@ -10,12 +10,13 @@ main {
   );
   --bg-gradiant: color.$instaGradation;
 
-  margin-bottom: 5rem;
   display: grid;
   grid-template-columns: 35rem 16rem;
   grid-template-rows: 7rem auto;
+  margin-bottom: 5rem;
   position: relative; // for modal black opacity background
 
+  // TODO: Refactoring 에정
   &.modalOpen::before {
     content: '';
     position: absolute;
@@ -73,13 +74,5 @@ main {
     to {
       z-index: 10;
     }
-  }
-
-  @media screen and (max-width: 968px) {
-    grid-template-columns: 35rem;
-  }
-
-  @media screen and (max-width: 700px) {
-    grid-template-columns: 80%;
   }
 }

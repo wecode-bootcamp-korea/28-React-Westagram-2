@@ -1,16 +1,17 @@
 @use '../../../../styles/mixin' as mixin;
 @use '../../../../styles/color' as color;
 
-.stories {
-  padding: 0.75rem 1rem 1.25rem;
+.joonyoung__stories {
   @include mixin.flex($align: center);
+  padding: 0.75rem 1rem 1.25rem;
   border: 1px solid color.$clr-border;
   overflow: hidden;
-  position: relative; // for arrow position
+  position: relative;
 
-  &__box {
+  .stories__box {
     @include mixin.flex($align: center);
     gap: 1em;
+    transform: translateX(var(--movedBy));
     transition: all 0.4s linear;
     position: relative; // arrow가 앞에 나오는 문제 해결 위한 position
     z-index: 10;

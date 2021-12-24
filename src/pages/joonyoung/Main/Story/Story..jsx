@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from 'react-icons/bs';
 import './Story.scss';
 
-const Story = ({ stories, setIsModalOpen, setModalIdx }) => {
+const Story = ({ stories, setModalIdx }) => {
   const [currIdx, setCurrIdx] = useState(0);
-  const carouselRef = useRef(null);
 
   const handleLeftSlide = () => {
     if (currIdx === 0) return;
@@ -21,24 +20,30 @@ const Story = ({ stories, setIsModalOpen, setModalIdx }) => {
     else setCurrIdx(prevIdx => prevIdx + 3);
   };
 
-  const handleModalOpen = e => {
-    const closestLi = e.target.closest('li');
-    setIsModalOpen(true);
-    setModalIdx(parseInt(closestLi.dataset?.idx));
+  const openModal = e => {
+    setModalIdx(parseInt(e.target?.dataset?.idx));
   };
 
-  useEffect(() => {
+  const computedMovedBy = useCallback(() => {
     let movedBy = currIdx * 56;
-    if (currIdx === 3) movedBy += 16;
-    carouselRef.current.style.transform = `translateX(-${movedBy}px)`;
+    if (currIdx >= 3) movedBy += 16;
+    return { '--movedBy': `-${movedBy}px` };
   }, [currIdx]);
 
   return (
-    <section className="stories">
-      <ul className="stories__box" ref={carouselRef} onClick={handleModalOpen}>
+    <section className="joonyoung__stories">
+      <ul
+        className="stories__box"
+        onClick={openModal}
+        style={computedMovedBy()}
+      >
         {stories.map((story, idx) => (
-          <li className="story" data-idx={idx + 1} key={story.username}>
-            <img src={story.imgUrl} alt={story.username} />
+          <li className="story" key={story.username}>
+            <img
+              src={story.imgUrl}
+              data-idx={idx + 1}
+              alt={`${story.username}'s profile`}
+            />
             <p>{story.username}</p>
           </li>
         ))}

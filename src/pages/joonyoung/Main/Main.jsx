@@ -6,40 +6,35 @@ import Modal from './Modal/Modal';
 import './Main.scss';
 
 export default function Main() {
-  const [stories, setStories] = useState([]);
-  const [feedDatas, setFeedDatas] = useState([]);
-  const [modalIdx, setModalIdx] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [feedDatas, setFeedDatas] = useState(null);
+  const [modalIdx, setModalIdx] = useState(0);
 
   useEffect(() => {
     const fetchFeed = async () => {
       const data = await (
         await fetch('http://localhost:3000/data/joonyoung/data.json')
       ).json();
-      setStories(data?.stories);
-      setFeedDatas(data?.feed);
+      // setStories(data?.stories);
+      setFeedDatas(data);
     };
 
     fetchFeed();
   }, []);
 
-  if (feedDatas.length === 0) return <h1>Loading datas...</h1>;
+  if (!feedDatas) return <h1>Loading datas...</h1>;
   return (
-    <main className={isModalOpen ? 'modalOpen' : ''}>
-      {isModalOpen && (
+    <main className={`joonyoung_main ${modalIdx === -1 ? 'modalOpen' : ''}`}>
+      {/* FIXME: Modal 작업 수정 예정 */}
+      {/* {modalIdx && (
         <Modal
           profileImg={stories[modalIdx - 1].imgUrl}
           username={stories[modalIdx - 1].username}
-          setIsModalOpen={setIsModalOpen}
+          setModalIdx={setModalIdx}
         />
-      )}
-      <Story
-        stories={stories}
-        setIsModalOpen={setIsModalOpen}
-        setModalIdx={setModalIdx}
-      />
-      <Sidebar />
-      {feedDatas?.map(feedData => (
+      )} */}
+      <Story stories={feedDatas?.stories} setModalIdx={setModalIdx} />
+      <Sidebar otherProfileInfos={feedDatas?.otherProfileInfos} />
+      {feedDatas?.feed?.map(feedData => (
         <Feed
           key={feedData.id}
           feedUpLoader={feedData.feedUpLoader}

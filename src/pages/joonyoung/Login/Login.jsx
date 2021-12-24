@@ -6,60 +6,41 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [active, setActive] = useState(false);
 
-  const validateInput = () => {
-    if (email.includes('@') && password.length >= 5) setActive(true);
-    else setActive(false);
-  };
-
-  const handleEmail = e => {
-    setEmail(e.target.value);
-  };
-
-  const handlePwd = e => {
-    setPassword(e.target.value);
-  };
+  const isValid = email.includes('@') && password.length >= 5;
 
   const goToMainByEnter = e => {
     if (e.key === 'Enter') goToMain();
   };
 
   const goToMain = () => {
-    if (!active) return;
+    if (!isValid) return;
     navigate('/main-joonyoung');
   };
 
-  useEffect(() => {
-    validateInput();
-  }, [email, password]);
-
   return (
-    <section className="login">
+    <section className="login__joonyoung">
       <h1>Westagram</h1>
-      <section className="login__form">
+      <form className="login__form">
         <input
           type="email"
           placeholder="전화번호, 사용자 이름 또는 이메일"
-          data-type="email"
-          onChange={handleEmail}
+          onChange={e => setEmail(e.target.value)}
           onKeyDown={goToMainByEnter}
         />
         <input
           type="password"
           placeholder="비밀번호"
-          data-type="password"
-          onChange={handlePwd}
+          onChange={e => setPassword(e.target.value)}
           onKeyDown={goToMainByEnter}
         />
-
         <button
-          className={`login__formBtn ${active ? 'active' : ''}`}
+          className={`login__formBtn ${isValid && 'active'}`}
           onClick={goToMain}
         >
           로그인
         </button>
-      </section>
+      </form>
 
       <div className="divider">
         <span>또는</span>
@@ -79,8 +60,7 @@ const Login = () => {
         target="_blank"
         rel="noreferrer"
       >
-        {/* 비밀번호를 잊으셨나요? */}
-        로그인
+        비밀번호를 잊으셨나요?
       </a>
     </section>
   );

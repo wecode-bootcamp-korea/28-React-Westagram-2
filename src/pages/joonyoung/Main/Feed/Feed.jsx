@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import FeedHeader from './FeedHeader/FeedHeader';
 import FeedCarousel from './FeedCarousel/FeedCarousel';
-import './Feed.scss';
 import FeedIcons from './FeedIcons/FeedIcons';
 import FeedComment from './FeedComment/FeedComment';
+import './Feed.scss';
 
 const Feed = ({
   feedUpLoader,

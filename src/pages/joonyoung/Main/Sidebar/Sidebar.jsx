@@ -2,16 +2,10 @@ import React from 'react';
 import Other from './Ohter';
 import './Sidebar.scss';
 
-const Sidebar = () => {
-  const otherProfileInfos = [
-    { id: 1, username: 'wecode28기', description: 'wecode님외 36명이 follow' },
-    { id: 2, username: 'Younha', description: 'Enna Kim외 10명이 follow' },
-    { id: 3, username: 'wework', description: 'wecode28님외 236명이 follow' },
-  ];
-
+const Sidebar = ({ otherProfileInfos }) => {
   return (
     <aside>
-      <section className="sidebar">
+      <section className="joonyoung__sidebar">
         <header>
           <div className="img__skeleton">
             <img src="/images/joonyoung/profile.jpg" alt="profile " />
@@ -29,7 +23,7 @@ const Sidebar = () => {
             <span>모두보기</span>
           </header>
           <section className="others">
-            {otherProfileInfos.map(profile => (
+            {otherProfileInfos?.map(profile => (
               <Other key={profile.id} profile={profile} />
             ))}
           </section>

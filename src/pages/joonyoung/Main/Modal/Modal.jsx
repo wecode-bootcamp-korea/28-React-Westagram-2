@@ -2,19 +2,19 @@ import React, { useEffect } from 'react';
 import { GrClose } from 'react-icons/gr';
 import './Modal.scss';
 
-const Modal = ({ profileImg, username, setIsModalOpen }) => {
+const Modal = ({ profileImg, username, setModalIdx }) => {
   useEffect(() => {
-    const closeModal = key => setIsModalOpen(false);
-    window.addEventListener('keydown', e => closeModal(e.key));
-    return () => {
-      window.removeEventListener('keydown', e => closeModal(e.key));
-    };
+    // const closeModal = key => setIsModalOpen(false);
+    // window.addEventListener('keydown', e => closeModal(e.key));
+    // return () => {
+    // window.removeEventListener('keydown', e => closeModal(e.key));
+    // };
   }, []);
 
   return (
     <div className="modal">
       <img src={profileImg} alt="modal Profile img" />
-      <GrClose size="20" onClick={() => setIsModalOpen(false)} />
+      <GrClose size="20" onClick={setModalIdx(0)} />
       <h1>
         Welcome to wecode
         <br />
