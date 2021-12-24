@@ -1,10 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-// import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
+  // 사용자 데이터 저장 && 버튼활성화
+  const [idInput, setIdInput] = useState('');
+  const [pwInput, setPwInput] = useState('');
+  const [activateBtn, setActivateBtn] = useState(false);
+  const [isValidatedId, setIsValidatedId] = useState(false);
+  const [isValidatedPw, setIsValidatedPw] = useState(false);
+
   // 링크
   const navigate = useNavigate();
 
@@ -13,21 +19,12 @@ const Login = () => {
     navigate('/main-hyeonze');
   };
 
-  // 사용자 데이터 저장 && 버튼활성화
-  const [idInput, setIdInput] = useState('');
-  const [pwInput, setPwInput] = useState('');
-  const [activateBtn, setActivateBtn] = useState(false);
-  const [isValidatedId, setIsValidatedId] = useState(false);
-  const [isValidatedPw, setIsValidatedPw] = useState(false);
-
   const changeIdInput = e => {
-    // setIdInput(e.target.value); // 비구조화 할당 적용
     const { value } = e.target;
     setIdInput(value);
   };
 
   const changePwInput = e => {
-    // setPwInput(e.target.value); // 비구조화 할당 적용
     const { value } = e.target;
     setPwInput(value);
   };
@@ -95,15 +92,13 @@ const Login = () => {
             className="userpassword"
             onChange={changePwInput}
           />
-          {/* <Link to="/main">로그인</Link> */}
           <input
-            className={activateBtn ? 'blue' : ''}
+            // className={activateBtn ? 'blue' : ''}
+            className={activateBtn && 'blue'}
             disabled={activateBtn ? false : true}
             type="button"
             value="로그인"
             onClick={goToMain}
-            // onClick={signup}
-            // onClick={login}
           />
         </form>
         <p>비밀번호를 잊으셨나요?</p>
