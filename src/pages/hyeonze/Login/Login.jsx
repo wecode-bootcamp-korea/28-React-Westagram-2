@@ -23,7 +23,7 @@ const Login = () => {
     idInput.indexOf('@') !== -1 && pwInput.length > 4
       ? setIsValidatedUser(true)
       : setIsValidatedUser(false);
-  }, [idInput, pwInput, isValidatedUser]);
+  }, [idInput, pwInput]);
 
   // 메인으로 이동할 때 로직
   const goToMain = () => {
