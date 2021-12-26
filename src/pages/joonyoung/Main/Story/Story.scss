@@ -9,11 +9,11 @@
   overflow: hidden;
 
   .stories__box {
-    --slide-offset: -56;
+    --slide-offset: -56px;
 
     position: relative;
     z-index: 10;
-    @include mixin.flex($align: center);
+    @include mixin.flex;
     gap: 1em;
     transform: translateX(
       calc(var(--slide-offset) * var(--currIdx) + var(--lastPadding))

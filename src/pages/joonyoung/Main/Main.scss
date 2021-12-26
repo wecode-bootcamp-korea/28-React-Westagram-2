@@ -10,21 +10,17 @@
   );
   --bg-gradiant: color.$instaGradation;
 
+  position: relative;
   display: grid;
   grid-template-columns: 35rem 16rem;
   grid-template-rows: 7rem auto;
   margin-bottom: 5rem;
-  position: relative; // for modal black opacity background
 
-  // TODO: Refactoring 에정
   &.modalOpen::before {
     content: '';
-    position: absolute;
+    position: fixed;
+    inset: 0;
     z-index: 1000;
-    top: -10rem;
-    left: -20vw;
-    width: 110vw;
-    height: 200vh;
     background-color: rgba(0, 0, 0, 0.2);
   }
 

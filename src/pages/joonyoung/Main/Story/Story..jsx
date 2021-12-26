@@ -20,13 +20,12 @@ const Story = ({ stories, setModalIdx }) => {
     else setCurrIdx(prevIdx => prevIdx + 3);
   };
 
-  // FIXME: Modal 관련 로직 수정 예정
   const openModal = e => {
     setModalIdx(parseInt(e.target?.dataset?.idx));
   };
 
   let computedMovedProperty = {
-    '--currIdx': `${currIdx}px`,
+    '--currIdx': `${currIdx}`,
     '--lastPadding': `${currIdx >= 3 ? -16 : 0}px`,
   };
 
@@ -41,7 +40,7 @@ const Story = ({ stories, setModalIdx }) => {
           <li className="story" key={story.username}>
             <img
               src={story.imgUrl}
-              data-idx={idx + 1}
+              data-idx={idx}
               alt={`${story.username}'s profile`}
             />
             <p>{story.username}</p>

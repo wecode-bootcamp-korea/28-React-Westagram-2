@@ -3,27 +3,28 @@ import { GrClose } from 'react-icons/gr';
 import './Modal.scss';
 
 const Modal = ({ profileImg, username, setModalIdx }) => {
+  const closeModal = () => setModalIdx(false);
+
   useEffect(() => {
-    // const closeModal = key => setIsModalOpen(false);
-    // window.addEventListener('keydown', e => closeModal(e.key));
-    // return () => {
-    // window.removeEventListener('keydown', e => closeModal(e.key));
-    // };
+    window.addEventListener('keydown', closeModal);
+    return () => {
+      window.removeEventListener('keydown', closeModal);
+    };
   }, []);
+
+  const hearts = Array(20).fill(0);
 
   return (
     <div className="modal">
       <img src={profileImg} alt="modal Profile img" />
-      <GrClose size="20" onClick={setModalIdx(0)} />
+      <GrClose size="20" onClick={closeModal} />
       <h1>
         Welcome to wecode
         <br />
         <span>{username}</span>
-        {Array(50)
-          .fill(0)
-          .map((_, idx) => (
-            <div className="heart_bubble" key={idx} />
-          ))}
+        {hearts.map((_, idx) => (
+          <div className="heart_bubble" key={idx} />
+        ))}
       </h1>
     </div>
   );
