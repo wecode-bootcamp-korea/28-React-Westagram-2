@@ -2,25 +2,25 @@
 @use '../../../../../../styles/mixin' as mixin;
 
 li.comment {
+  position: relative;
   height: 1.75rem;
-  position: relative; // for positioning front section on top
-  overflow: hidden; // for do not showing overflown slided front
   font-size: 0.8rem;
+  overflow: hidden;
 
   .delete {
-    height: 100%;
     @include mixin.flex($justify: flex-end);
+    height: 100%;
     background-color: rgb(237, 74, 86);
 
     svg {
-      padding: 0.25em;
-      width: 9%;
-      height: 100%;
       display: inline-flex;
       justify-content: center;
-      font-size: 0.975rem;
-      font-weight: bold;
+      width: 9%;
+      height: 100%;
+      padding: 0.25em;
       color: rgb(248 250 252);
+      font-size: 0.875rem;
+      font-weight: bold;
       cursor: pointer;
       transition: all 0.4s ease-in;
 
@@ -35,17 +35,18 @@ li.comment {
   }
 
   .front {
-    padding: 0 1rem;
-    background-color: #fff;
-    transition: transform 0.4s ease-in;
-    @include mixin.flex($justify: flex-end);
     position: absolute;
     inset: 0;
+    @include mixin.flex($justify: flex-end);
+    padding: 0 1rem;
+    background-color: #fff;
+    transform: translateX(var(--movedBy));
+    transition: transform 0.4s ease-in;
 
     svg {
       margin-left: auto;
-      cursor: pointer;
       font-weight: bold;
+      cursor: pointer;
     }
   }
 }

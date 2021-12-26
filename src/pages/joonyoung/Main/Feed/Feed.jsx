@@ -1,35 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import FeedHeader from './FeedHeader/FeedHeader';
 import FeedCarousel from './FeedCarousel/FeedCarousel';
 import FeedIcons from './FeedIcons/FeedIcons';
 import FeedComment from './FeedComment/FeedComment';
 import './Feed.scss';
 
-const Feed = ({
-  feedUpLoader,
-  uploaderProfileImg,
-  carouselImages,
-  initialComments,
-}) => {
-  const [likes, setLikes] = useState(1129);
-  const [commentId, setCommendId] = useState(initialComments.length + 1);
-  const [comments, setComments] = useState(initialComments);
+const Feed = ({ feed }) => {
+  const [likes, setLikes] = useState(feed?.likes);
 
   return (
-    <section className="feed">
+    <section className="joonyoung__feed">
       <FeedHeader
-        feedUpLoader={feedUpLoader}
-        uploaderProfileImg={uploaderProfileImg}
+        feedUpLoader={feed?.feedUpLoader}
+        uploaderProfileImg={feed?.uploaderProfileImg}
+        uploaderInfo={feed?.uploaderInfo}
       />
-      <FeedCarousel carouselImages={carouselImages} />
+      <FeedCarousel carouselImages={feed?.carouselImages} />
       <FeedIcons likes={likes} setLikes={setLikes} />
       <FeedComment
-        commentId={commentId}
-        setCommendId={setCommendId}
-        comments={comments}
+        initialComments={feed?.comments}
         setLikes={setLikes}
-        setComments={setComments}
-        feedUpLoader={feedUpLoader}
+        feedUpLoader={feed?.feedUpLoader}
       />
     </section>
   );

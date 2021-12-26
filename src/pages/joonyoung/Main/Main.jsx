@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Story from './Story/Story.';
 import Sidebar from './Sidebar/Sidebar';
+// import Modal from './Modal/Modal'; FIXME: modal 수정 에정
 import Feed from './Feed/Feed';
-import Modal from './Modal/Modal';
 import './Main.scss';
 
 export default function Main() {
-  const [feedDatas, setFeedDatas] = useState(null);
+  const [datas, setDatas] = useState(null);
   const [modalIdx, setModalIdx] = useState(0);
 
   useEffect(() => {
     const fetchFeed = async () => {
-      const data = await (
-        await fetch('http://localhost:3000/data/joonyoung/data.json')
-      ).json();
-      // setStories(data?.stories);
-      setFeedDatas(data);
+      await fetch('http://localhost:3000/data/joonyoung/data.json')
+        .then(res => res.json())
+        .then(data => setDatas(data));
     };
-
     fetchFeed();
   }, []);
 
-  if (!feedDatas) return <h1>Loading datas...</h1>;
+  if (!datas) return <h1>Loading datas...</h1>;
   return (
     <main className={`joonyoung_main ${modalIdx === -1 ? 'modalOpen' : ''}`}>
       {/* FIXME: Modal 작업 수정 예정 */}
@@ -32,16 +29,10 @@ export default function Main() {
           setModalIdx={setModalIdx}
         />
       )} */}
-      <Story stories={feedDatas?.stories} setModalIdx={setModalIdx} />
-      <Sidebar otherProfileInfos={feedDatas?.otherProfileInfos} />
-      {feedDatas?.feed?.map(feedData => (
-        <Feed
-          key={feedData.id}
-          feedUpLoader={feedData.feedUpLoader}
-          uploaderProfileImg={feedData.uploaderProfileImg}
-          carouselImages={feedData.carouselImages}
-          initialComments={feedData.comments}
-        />
+      <Story stories={datas?.stories} setModalIdx={setModalIdx} />
+      <Sidebar otherProfileInfos={datas?.otherProfileInfos} />
+      {datas?.feed?.map(feed => (
+        <Feed key={feed.id} feed={feed} />
       ))}
     </main>
   );

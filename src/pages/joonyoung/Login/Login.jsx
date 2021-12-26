@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
@@ -7,7 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const isValid = email.includes('@') && password.length >= 5;
+  const isValid = email.includes('@') && password.length >= 5 ? 'active' : '';
 
   const goToMainByEnter = e => {
     if (e.key === 'Enter') goToMain();
@@ -34,10 +34,7 @@ const Login = () => {
           onChange={e => setPassword(e.target.value)}
           onKeyDown={goToMainByEnter}
         />
-        <button
-          className={`login__formBtn ${isValid && 'active'}`}
-          onClick={goToMain}
-        >
+        <button className={`login__formBtn ${isValid}`} onClick={goToMain}>
           로그인
         </button>
       </form>

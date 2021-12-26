@@ -2,12 +2,11 @@
 @use '../../../../../styles/mixin' as mixin;
 
 .feed__carousel {
+  position: relative;
   overflow: hidden;
   --bg-loaded: none;
-  position: relative; // for arrows
 
   &::after {
-    // for image skeleton loading effect
     content: '';
     position: absolute;
     inset: 0;
@@ -18,7 +17,9 @@
   }
 
   .img__container {
-    @include mixin.flex($align: center);
+    --carousel-width: 560;
+    @include mixin.flex;
+    transform: translateX(calc(var(--movedBy) * var(--carousel-width)));
     transition: all 0.5s ease-in;
 
     img {
@@ -26,14 +27,13 @@
     }
   }
 
-  // Z-index: skeleton > arrow > image
   .arrow {
     position: absolute;
     top: 50%;
     z-index: 1;
-    transform: translateY(-50%);
-    cursor: pointer;
     color: rgba(229, 231, 235, 0.75);
+    cursor: pointer;
+    transform: translateY(-50%);
 
     &.hidden {
       display: none;
@@ -57,14 +57,14 @@
   position: absolute;
   left: 0;
   right: 0;
-  margin-top: 0.675rem;
-  @include mixin.flex($justify: center, $align: center);
+  @include mixin.flex($justify: center);
   gap: 0.25em;
+  margin-top: 0.675rem;
   cursor: pointer;
 
   .slide_btn {
-    min-width: 0.475rem;
-    min-height: 0.475rem;
+    width: 0.475rem;
+    height: 0.475rem;
     border: 1px solid lightgray;
     border-radius: 50%;
     background-color: lightgray;

@@ -24,19 +24,14 @@ const Story = ({ stories, setModalIdx }) => {
     setModalIdx(parseInt(e.target?.dataset?.idx));
   };
 
-  const computedMovedBy = useCallback(() => {
+  const computeMovedBy = useCallback(() => {
     let movedBy = currIdx * 56;
     if (currIdx >= 3) movedBy += 16;
     return { '--movedBy': `-${movedBy}px` };
   }, [currIdx]);
-
   return (
     <section className="joonyoung__stories">
-      <ul
-        className="stories__box"
-        onClick={openModal}
-        style={computedMovedBy()}
-      >
+      <ul className="stories__box" onClick={openModal} style={computeMovedBy()}>
         {stories.map((story, idx) => (
           <li className="story" key={story.username}>
             <img

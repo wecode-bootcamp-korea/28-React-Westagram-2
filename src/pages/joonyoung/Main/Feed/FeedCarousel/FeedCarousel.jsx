@@ -1,67 +1,68 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from 'react-icons/bs';
 import './FeedCarousel.scss';
 
+const HIDDEN = 'hidden';
+
 const FeedCarousel = ({ carouselImages }) => {
-  const [currIdx, setCurrIdx] = useState(0);
-  const carouselRef = useRef(null);
+  const [currIndex, setCurrIdx] = useState(0);
+
+  const carouselLastIndex = carouselImages.length - 1;
+  const isLeftArrowHidden = currIndex === 0 ? HIDDEN : '';
+  const isRightArrowHidden = currIndex === carouselLastIndex ? HIDDEN : '';
+  const navigator = Array(carouselImages.length).fill(0);
 
   const hadnleSlideLeft = () => {
-    if (currIdx === 0) return;
+    if (currIndex === 0) return;
     setCurrIdx(prevIdx => --prevIdx);
   };
 
   const handleSlideRight = () => {
-    if (currIdx === 4) return;
+    if (currIndex === carouselLastIndex) return;
     setCurrIdx(prevIdx => ++prevIdx);
   };
 
-  const handleNavigateToIdx = e => {
+  const navigateToSpecificIndex = e => {
     const idx = e.target?.dataset?.idx;
-    idx && setCurrIdx(_ => parseInt(idx));
+    idx && setCurrIdx(parseInt(idx));
   };
 
-  useEffect(() => {
-    const width = carouselRef.current.getBoundingClientRect().width;
-    carouselRef.current.style.transform = `translateX(-${currIdx * width}px)`;
-  }, [currIdx]);
+  let slideIndexProperties = {
+    '--movedBy': `-${currIndex}px`,
+  };
 
   return (
     <section>
       <article className="feed__carousel">
         <BsFillArrowLeftCircleFill
           size="24"
-          className={`arrow ${currIdx === 0 ? 'hidden' : ''}`}
+          className={`arrow ${isLeftArrowHidden}`}
           onClick={hadnleSlideLeft}
         />
         <BsFillArrowRightCircleFill
           size="24"
-          className={`arrow ${
-            currIdx === carouselImages.length - 1 ? 'hidden' : ''
-          }`}
+          className={`arrow ${isRightArrowHidden}`}
           onClick={handleSlideRight}
         />
 
-        <ul className="img__container" ref={carouselRef}>
+        <ul className="img__container" style={slideIndexProperties}>
           {carouselImages?.map((carouselImg, idx) => (
             <img src={carouselImg} alt="feed " key={idx} />
           ))}
         </ul>
       </article>
 
-      <ul className="carousel__navigator" onClick={handleNavigateToIdx}>
-        {Array(carouselImages?.length)
-          .fill(0)
-          .map((_, idx) => (
-            <li
-              key={idx}
-              data-idx={idx}
-              className={`slide_btn ${currIdx === idx && 'current'}`}
-            />
-          ))}
+      <ul className="carousel__navigator" onClick={navigateToSpecificIndex}>
+        {navigator.map((_, idx) => (
+          <li
+            key={idx}
+            data-idx={idx}
+            className={`slide_btn ${currIndex === idx && 'current'}`}
+          />
+        ))}
       </ul>
     </section>
   );

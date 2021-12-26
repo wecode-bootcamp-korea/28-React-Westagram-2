@@ -11,17 +11,9 @@ const Heart = ({ size, setLikes }) => {
   };
 
   return clicked ? (
-    <AiFillHeart
-      className={`heart ${clicked ? 'like' : ''}`}
-      size={size}
-      onClick={handleClickHeart}
-    />
+    <AiFillHeart className="heart" size={size} onClick={handleClickHeart} />
   ) : (
-    <AiOutlineHeart
-      className={`heart ${clicked ? 'like' : ''}`}
-      size={size}
-      onClick={handleClickHeart}
-    />
+    <AiOutlineHeart size={size} onClick={handleClickHeart} />
   );
 };
 

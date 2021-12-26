@@ -1,47 +1,40 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import Comment from './Comment/Comment';
 import { BiSmile } from 'react-icons/bi';
 import './FeedComment.scss';
 
-const FeedComment = ({
-  commentId,
-  setCommendId,
-  comments,
-  setLikes,
-  setComments,
-  feedUpLoader,
-}) => {
-  const [newComment, setNewComment] = useState('');
-  const [lines, setLines] = useState(0);
-  const inputRef = useRef();
+let id = 4;
+const ACTIVE = 'active';
 
-  const handleAddNewComment = e => {
+const FeedComment = ({ initialComments, setLikes, feedUpLoader }) => {
+  const [comments, setComments] = useState(initialComments);
+  const [newComment, setNewComment] = useState('');
+  const isButtonActive = newComment ? ACTIVE : '';
+
+  const addNewComment = e => {
     if (!newComment) return;
     setComments(prevComments => [
       ...prevComments,
       {
-        id: commentId,
+        id: ++id,
         user: feedUpLoader,
         comment: newComment.replace(/\r\n/gi, '<br />'),
       },
     ]);
-    setNewComment(prev => '');
-    e.preventDefault(); // textarea에  value를 직접 바꾸더라도 enter로 줄바꿈되는 것 방지
-    setCommendId(prevId => prevId + 1);
-    setLines(0);
+    setNewComment('');
+    e.preventDefault();
   };
 
   const handleAddnewCommentByEnter = e => {
     if (e.key !== 'Enter') return;
-    if (!e.shiftKey) handleAddNewComment(e);
-    else {
-      setLines(lines + 1);
-    }
+    else if (!e.shiftKey) addNewComment(e);
   };
 
-  useEffect(() => {
-    inputRef.current.style.height = `${lines * 16 + 24}px`;
-  }, [lines]);
+  const deleteComment = id => {
+    setComments(prevComments =>
+      [...prevComments].filter(comment => comment.id !== id)
+    );
+  };
 
   return (
     <section className="feed__comment">
@@ -50,8 +43,8 @@ const FeedComment = ({
           <Comment
             key={comment.id}
             comment={comment}
-            setComments={setComments}
             setLikes={setLikes}
+            deleteComment={deleteComment}
           />
         ))}
       </ul>
@@ -63,11 +56,10 @@ const FeedComment = ({
           value={newComment}
           onInput={e => setNewComment(e.target.value)}
           onKeyDown={handleAddnewCommentByEnter}
-          ref={inputRef}
         />
         <button
-          className={`add__comment ${newComment ? 'active' : ''}`}
-          onClick={handleAddNewComment}
+          className={`add__comment ${isButtonActive}`}
+          onClick={addNewComment}
         >
           게시
         </button>
