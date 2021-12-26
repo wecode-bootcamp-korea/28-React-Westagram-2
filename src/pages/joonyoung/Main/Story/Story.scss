@@ -1,0 +1,77 @@
+@use '../../../../styles/mixin' as mixin;
+@use '../../../../styles/color' as color;
+
+.joonyoung__stories {
+  position: relative;
+  @include mixin.flex($align: center);
+  padding: 0.75rem 1rem 1.25rem;
+  border: 1px solid color.$clr-border;
+  overflow: hidden;
+
+  .stories__box {
+    --slide-offset: -56px;
+
+    position: relative;
+    z-index: 10;
+    @include mixin.flex;
+    gap: 1em;
+    transform: translateX(
+      calc(var(--slide-offset) * var(--currIdx) + var(--lastPadding))
+    );
+    transition: all 0.5s ease-in;
+
+    .story {
+      --img-size: 3.5rem;
+      --mr: 0;
+      --inset: -5px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        background: #fff;
+        border-radius: 50%;
+      }
+
+      img {
+        position: relative;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      p {
+        position: absolute;
+        top: 115%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    color: rgba(229, 231, 235, 0.7);
+    cursor: pointer;
+    transform: translateY(-50%);
+    animation: fadeInArrow 10ms 2.5s forwards;
+
+    &.left {
+      left: 2%;
+    }
+
+    &.right {
+      right: 2%;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &.hidden {
+      opacity: 0;
+    }
+  }
+}

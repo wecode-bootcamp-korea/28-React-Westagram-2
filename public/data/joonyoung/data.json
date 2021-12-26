@@ -1,0 +1,92 @@
+{
+  "stories": [
+    { "imgUrl": "images/joonyoung/stories/story1.jpg", "username": "Enna" },
+    { "imgUrl": "images/joonyoung/stories/story2.jpg", "username": "Jesy" },
+    { "imgUrl": "images/joonyoung/stories/story3.jpg", "username": "Denial" },
+    { "imgUrl": "images/joonyoung/stories/story4.jpg", "username": "Meow" },
+    {
+      "imgUrl": "images/joonyoung/stories/story5.jpg",
+      "username": "Christina"
+    },
+    { "imgUrl": "images/joonyoung/stories/story6.jpg", "username": "Mally" },
+    { "imgUrl": "images/joonyoung/stories/story7.jpg", "username": "Karel" },
+    { "imgUrl": "images/joonyoung/stories/story8.jpg", "username": "Bred" },
+    { "imgUrl": "images/joonyoung/stories/story9.jpg", "username": "Andrew" },
+    { "imgUrl": "images/joonyoung/stories/story10.jpg", "username": "Emily" }
+  ],
+  "otherProfileInfos": [
+    {
+      "id": 1,
+      "username": "wecode28기",
+      "description": "wecode님외 36명이 follow"
+    },
+    {
+      "id": 2,
+      "username": "Younha",
+      "description": "Enna Kim외 10명이 follow"
+    },
+    {
+      "id": 3,
+      "username": "wework",
+      "description": "wecode28님외 236명이 follow"
+    }
+  ],
+  "feed": [
+    {
+      "id": 1,
+      "feedUpLoader": "Enna",
+      "uploaderProfileImg": "./images/joonyoung/stories/story1.jpg",
+      "uploaderInfo": "Enna's Feed icon",
+      "carouselImages": [
+        "./images/joonyoung/feed/feed1/pexels-fauxels-3184291.jpg",
+        "./images/joonyoung/feed/feed1/pexels-fauxels-3184302.jpg",
+        "./images/joonyoung/feed/feed1/pexels-fauxels-3184433.jpg",
+        "./images/joonyoung/feed/feed1/pexels-min-an-853168.jpg",
+        "./images/joonyoung/feed/feed1/pexels-this-is-zun-1116302.jpg"
+      ],
+      "likes": 1129,
+      "comments": [
+        {
+          "id": 1,
+          "user": "28기 양대영님",
+          "comment": "여러분 치킨계 쓰셔야 합니다..!! 👀 👀"
+        },
+        {
+          "id": 2,
+          "user": "28기 이아영님",
+          "comment": "대영님도 안 쓰셨잖아요?! 🤭"
+        },
+        {
+          "id": 3,
+          "user": "28기 박윤국님",
+          "comment": "🎸 🎸 🎸 (신곡 홍보중)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "feedUpLoader": "James",
+      "uploaderProfileImg": "./images/joonyoung/stories/story2.jpg",
+      "uploaderInfo": "It's jesy!",
+      "carouselImages": [
+        "./images/joonyoung/feed/feed2/handtohand.jpg",
+        "./images/joonyoung/feed/feed2/branch.jpg",
+        "./images/joonyoung/feed/feed2/pexels-te-lensfix-1371360.jpg",
+        "./images/joonyoung/feed/feed2/pexels-victor-freitas-803105.jpg"
+      ],
+      "likes": 1129,
+      "comments": [
+        {
+          "id": 1,
+          "user": "멘토 김INTP님",
+          "comment": "(안경을 치켜 올리며) git branch merge"
+        },
+        {
+          "id": 2,
+          "user": "28기 이ESTJ님",
+          "comment": "아니 계획을 안짜고 여행을 간다고?"
+        }
+      ]
+    }
+  ]
+}

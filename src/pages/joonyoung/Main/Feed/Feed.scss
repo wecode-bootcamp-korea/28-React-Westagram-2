@@ -1,0 +1,12 @@
+.joonyoung__feed {
+  position: relative;
+  display: grid;
+  grid-template-rows: min-content 60vh max-content auto;
+  margin-top: 1.75rem;
+  box-shadow: 0 0 0.75rem lightgray;
+  font-family: sans-serif;
+
+  & + & {
+    margin-top: 3rem;
+  }
+}

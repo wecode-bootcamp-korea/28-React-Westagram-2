@@ -1,0 +1,31 @@
+@use '../../../../../styles/color' as color;
+@use '../../../../../styles/mixin' as mixin;
+
+.feed__icons {
+  padding: 0.875rem 1rem 0 1rem;
+  background-color: #fff;
+
+  .feed__icon {
+    @include mixin.flex;
+    gap: 1em;
+
+    svg {
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(200, 200, 200);
+      }
+
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+  }
+
+  p {
+    width: fit-content;
+    margin-top: 0.5em;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,77 @@
+@use '../../../../../styles/color' as color;
+@use '../../../../../styles/mixin' as mixin;
+
+.feed__carousel {
+  position: relative;
+  overflow: hidden;
+  --bg-loaded: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    background: darkgray var(--bg-skeleton) right / 150%;
+    animation: skeletonLoading 2s ease-out alternate 3,
+      imgLoaded 10ms 2.5s forwards;
+  }
+
+  .img__container {
+    --carousel-width: 560;
+    @include mixin.flex;
+    transform: translateX(calc(var(--movedBy) * var(--carousel-width)));
+    transition: all 0.5s ease-in;
+
+    img {
+      height: 60vh;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    color: rgba(229, 231, 235, 0.75);
+    cursor: pointer;
+    transform: translateY(-50%);
+
+    &.hidden {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:first-child {
+      left: 4%;
+    }
+
+    &:nth-child(2) {
+      right: 4%;
+    }
+  }
+}
+
+.carousel__navigator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  @include mixin.flex($justify: center);
+  gap: 0.25em;
+  margin-top: 0.675rem;
+  cursor: pointer;
+
+  .slide_btn {
+    width: 0.475rem;
+    height: 0.475rem;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    background-color: lightgray;
+    transition: all 0.2s ease-out;
+
+    &.current {
+      background-color: color.$clr-primary;
+    }
+  }
+}

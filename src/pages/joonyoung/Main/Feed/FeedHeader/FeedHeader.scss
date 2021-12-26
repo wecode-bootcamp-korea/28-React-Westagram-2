@@ -1,0 +1,37 @@
+@use '../../../../../styles/mixin' as mixin;
+
+.feed__header {
+  @include mixin.flex($align: center);
+  padding: 0.975rem 1.125rem;
+  border-bottom: 1px solid lightgray;
+
+  &-img-container {
+    --img-size: 1.75rem;
+    --inset: -3px;
+    --mr: 0.25em;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    img {
+      position: relative;
+      border-radius: 50%;
+    }
+  }
+
+  p {
+    margin-left: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .dots {
+    margin-left: auto;
+    cursor: pointer;
+  }
+}
