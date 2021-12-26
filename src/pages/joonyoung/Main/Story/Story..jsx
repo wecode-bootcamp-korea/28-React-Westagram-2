@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
@@ -20,18 +20,23 @@ const Story = ({ stories, setModalIdx }) => {
     else setCurrIdx(prevIdx => prevIdx + 3);
   };
 
+  // FIXME: Modal 관련 로직 수정 예정
   const openModal = e => {
     setModalIdx(parseInt(e.target?.dataset?.idx));
   };
 
-  const computeMovedBy = useCallback(() => {
-    let movedBy = currIdx * 56;
-    if (currIdx >= 3) movedBy += 16;
-    return { '--movedBy': `-${movedBy}px` };
-  }, [currIdx]);
+  let computedMovedProperty = {
+    '--currIdx': `${currIdx}px`,
+    '--lastPadding': `${currIdx >= 3 ? -16 : 0}px`,
+  };
+
   return (
     <section className="joonyoung__stories">
-      <ul className="stories__box" onClick={openModal} style={computeMovedBy()}>
+      <ul
+        className="stories__box"
+        onClick={openModal}
+        style={computedMovedProperty}
+      >
         {stories.map((story, idx) => (
           <li className="story" key={story.username}>
             <img
